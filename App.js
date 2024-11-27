@@ -1,23 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import {Text, View } from 'react-native';
-import Screen from './src/components/Screen';
-export default function App() {
-  return (
-	<Screen>
-    <View>
-      <Text>Em edição...</Text>
-      <StatusBar style="auto" />
-    </View>
-	</Screen>
+import React from 'react';
+import Favorites from './src/pages/Favorites/favorites';
 
-  );
-}
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const App = () =>{
+  return <Favorites />;
+};
+ export default App;
