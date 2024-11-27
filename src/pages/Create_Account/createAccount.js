@@ -3,15 +3,13 @@ import {
   View,
   Text,
   TextInput,
-  StyleSheet,
   Image
 } from 'react-native';
-import { CheckBox } from '@react-native-community/checkbox';
 
 const LoginScreen = () => {
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [rememberMe, setRememberMe] = useState(false);
 
     return (
         <View>
@@ -25,25 +23,27 @@ const LoginScreen = () => {
             onChangeText={setUsername}
             ></TextInput>
 
+            <View>
+                <TextInput
+                value={email}
+                placeholder='Email'
+                onChangeText={setEmail}
+                ></TextInput>
+            </View>
+
             <TextInput 
             value={password}
             placeholder='Senha'
-            onChangeText={setPassword}
+            onChangeText={setUsername}
             ></TextInput>
 
-            <View>
-            <CheckBox
-                value={rememberMe}
-                onValueChange={setRememberMe}
-            />
-            <Text>Lembrar senha</Text>
-            </View>
+            
 
             <TouchableOpacity >
                 <Text>Entrar</Text>
             </TouchableOpacity>
 
-            <Text>Ainda não possui uma conta?<Text>Criar conta</Text></Text>
+            <Text>Já possui uma conta?<Text>Entrar</Text></Text>
 
 
 
