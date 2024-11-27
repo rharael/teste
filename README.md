@@ -30,6 +30,7 @@ Follow these steps to set up and run the project locally:
    ```
 
 2. **Install the project dependencies:**
+
    From inside the project folder run:
 
    ```
