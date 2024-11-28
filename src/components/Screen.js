@@ -1,5 +1,5 @@
 import { Platform, SafeAreaView, StatusBar } from 'react-native';
-import styled from 'styled-components';
+import styled from 'styled-components/native';
 
 const SafeScreen = styled.SafeAreaView`
 padding-top: ${Platform.OS === 'android' ? StatusBar.currentHeight : 0}
