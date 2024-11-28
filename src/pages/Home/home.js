@@ -1,0 +1,166 @@
+import { View, Text } from 'react-native';
+import {
+  Container,
+  Header,
+  HeaderDiv,
+  WelcomeDiv,
+  WelcomeText,
+  UserName,
+  ShoppingCart,
+  ShoppingCartImage,
+  Main,
+  SearchProductWrapper,
+  SearchProduct,
+  SearchIcon,
+  SectionTitle,
+  Categories,
+  CategoryItem,
+  CategoryImage,
+  CategoryIcon,
+  CategoryText,
+  Products,
+  ProductItem,
+  ProductAreaImage,
+  ProductImage,
+  ProductName,
+  ProductInformation,
+  ProductPrice,
+  ProductStars,
+  ProductStarIcon,
+  ProductStarValue,
+  LineDiv
+} from './styles';
+
+export default function Home(){
+  return(
+    <Container>
+      <Header>
+        <HeaderDiv>
+          <WelcomeDiv>
+            <WelcomeText>Bem-vindo</WelcomeText>
+            <UserName>Nome do Usuário</UserName>
+          </WelcomeDiv>
+
+          <ShoppingCart>
+            <ShoppingCartImage source={require('../../assets/icons/cart.png')}/>
+          </ShoppingCart>
+        </HeaderDiv>
+        
+        <SearchProductWrapper>
+          <SearchIcon source={require('../../assets/icons/search.png')}/>
+          <SearchProduct placeholder='Buscar Produto'/>
+        </SearchProductWrapper>
+      </Header>
+
+      <Main showsVerticalScrollIndicator={false}>
+        <SectionTitle>Categorias</SectionTitle>
+        <Categories horizontal showsHorizontalScrollIndicator={false}>
+          <CategoryItem>
+            <CategoryImage>
+              <CategoryIcon source={require('../../assets/icons/smartphone.png')}/>
+            </CategoryImage>
+            <CategoryText>Smartphone</CategoryText>
+          </CategoryItem>
+
+          <CategoryItem>
+            <CategoryImage>
+              <CategoryIcon source={require('../../assets/icons/bed.png')}/>
+            </CategoryImage>
+            <CategoryText>Cama</CategoryText>
+          </CategoryItem>
+
+          <CategoryItem>
+            <CategoryImage>
+              <CategoryIcon source={require('../../assets/icons/toy.png')}/>
+            </CategoryImage>
+            <CategoryText>Brinquedos</CategoryText>
+          </CategoryItem>
+
+          <CategoryItem>
+            <CategoryImage>
+              <CategoryIcon source={require('../../assets/icons/game.png')}/>
+            </CategoryImage>
+            <CategoryText>Games</CategoryText>
+          </CategoryItem>
+
+          <CategoryItem>
+            <CategoryImage>
+              <CategoryIcon source={require('../../assets/icons/notebook.png')}/>
+            </CategoryImage>
+            <CategoryText>Notebooks</CategoryText>
+          </CategoryItem>
+        </Categories>
+
+        <LineDiv/>
+
+        <SectionTitle>Produtos</SectionTitle>
+        <Products>      
+          <ProductItem>
+            <ProductAreaImage>
+              <ProductImage source={require('../../assets/images/iphone.png')}/>
+            </ProductAreaImage>
+            <ProductName>Apple IPhone 14 Pro</ProductName>
+
+            <ProductInformation>
+              <ProductPrice>R$ 6.999,00</ProductPrice>
+              
+              <ProductStars>
+                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarValue>5.0</ProductStarValue>
+              </ProductStars>
+            </ProductInformation>
+          </ProductItem>
+
+          <ProductItem>
+            <ProductAreaImage>
+              <ProductImage source={require('../../assets/images/iphone.png')}/>
+            </ProductAreaImage>
+            <ProductName>Apple IPhone 14 Pro</ProductName>
+
+            <ProductInformation>
+              <ProductPrice>R$ 6.999,00</ProductPrice>
+
+              <ProductStars>
+                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarValue>5.0</ProductStarValue>
+              </ProductStars>
+            </ProductInformation>
+          </ProductItem>
+
+          <ProductItem>
+            <ProductAreaImage>
+              <ProductImage source={require('../../assets/images/iphone.png')}/>
+            </ProductAreaImage>
+            <ProductName>Apple IPhone 14 Pro</ProductName>
+
+            <ProductInformation>
+              <ProductPrice>R$ 6.999,00</ProductPrice>
+
+              <ProductStars>
+                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarValue>5.0</ProductStarValue>
+              </ProductStars>
+            </ProductInformation>
+          </ProductItem>
+
+          <ProductItem>
+            <ProductAreaImage>
+              <ProductImage source={require('../../assets/images/iphone.png')}/>
+            </ProductAreaImage>
+            <ProductName>Apple IPhone 14 Pro</ProductName>
+
+            <ProductInformation>
+              <ProductPrice>R$ 6.999,00</ProductPrice>
+
+              <ProductStars>
+                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarValue>5.0</ProductStarValue>
+              </ProductStars>
+            </ProductInformation>
+          </ProductItem>
+
+        </Products>
+      </Main>
+    </Container>
+  );
+}
