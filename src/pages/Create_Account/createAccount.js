@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  TextInput,
-  Image
+    Text
 } from 'react-native';
 
 const LoginScreen = () => {
@@ -12,44 +9,53 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
 
     return (
-        <View>
-            <Text>Compas<Text>Shop</Text></Text>
+        <Container>
+            <LogoContainer>
+                <LogoText>Compas<TextHighlight>Shop</TextHighlight></LogoText>
+            </LogoContainer>
 
-            <Text>Entre com seu email e senha para usar o app</Text>
+            <Input
+                value={username}
+                placeholder="Nome de Usuário"
+                onChangeText={setUsername}
+            />
 
-            <TextInput 
-            value={username}
-            placeholder='Nome de Usuário'
-            onChangeText={setUsername}
-            ></TextInput>
-
-            <View>
-                <TextInput
+            <Input
                 value={email}
-                placeholder='Email'
+                placeholder="Email"
                 onChangeText={setEmail}
-                ></TextInput>
-            </View>
+                keyboardType="email-address"
+            />
 
-            <TextInput 
-            value={password}
-            placeholder='Senha'
-            onChangeText={setUsername}
-            ></TextInput>
+            <Input
+                value={password}
+                placeholder="Senha"
+                secureTextEntry
+                onChangeText={setPassword}
+            />
 
-            
+            <RememberMeContainer>
+                value={rememberMe}
+                onValueChange={setRememberMe}
+                <Text>Lembrar senha</Text>
+            </RememberMeContainer>
 
-            <TouchableOpacity >
-                <Text>Entrar</Text>
-            </TouchableOpacity>
+            <LoginButton onPress={handleLogin}>
+                <LoginButtonText>Entrar</LoginButtonText>
+            </LoginButton>
 
-            <Text>Já possui uma conta?<Text>Entrar</Text></Text>
+            <FooterText>
+                Ainda não possui uma conta?
+                <CreateAccountText onPress={() => Alert.alert('Criar Conta')}>
+                    Criar conta
+                </CreateAccountText>
+            </FooterText>
+        </Container>
+    );
 
-
-
-        </View>
-    )
 
 
 
 }
+
+export default LoginScreen;

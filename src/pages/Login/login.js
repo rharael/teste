@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View,
   Text,
-  TextInput,
-  StyleSheet,
   Image
 } from 'react-native';
 import { CheckBox } from '@react-native-community/checkbox';
@@ -14,42 +11,45 @@ const LoginScreen = () => {
     const [rememberMe, setRememberMe] = useState(false);
 
     return (
-        <View>
-            <Text>Compas<Text>Shop</Text></Text>
-
-            <Text>Entre com seu email e senha para usar o app</Text>
-
-            <TextInput 
+        <Container>
+          <LogoContainer>
+            <LogoText>Compas<TextHighlight>Shop</TextHighlight></LogoText>
+          </LogoContainer>
+    
+          <Subtitle>Entre com seu email e senha para usar o app</Subtitle>
+    
+          <Input
             value={username}
-            placeholder='Nome de Usuário'
+            placeholder="Nome de Usuário"
             onChangeText={setUsername}
-            ></TextInput>
-
-            <TextInput 
+          />
+    
+          <Input
             value={password}
-            placeholder='Senha'
+            placeholder="Senha"
+            secureTextEntry
             onChangeText={setPassword}
-            ></TextInput>
-
-            <View>
+          />
+    
+          <RememberMeContainer>
             <CheckBox
-                value={rememberMe}
-                onValueChange={setRememberMe}
+              value={rememberMe}
+              onValueChange={setRememberMe}
             />
             <Text>Lembrar senha</Text>
-            </View>
-
-            <TouchableOpacity >
-                <Text>Entrar</Text>
-            </TouchableOpacity>
-
-            <Text>Ainda não possui uma conta?<Text>Criar conta</Text></Text>
-
-
-
-        </View>
-    )
-
-
-
+          </RememberMeContainer>
+    
+          <LoginButton onPress={handleLogin}>
+            <LoginButtonText>Entrar</LoginButtonText>
+          </LoginButton>
+    
+          <FooterText>
+            Ainda não possui uma conta?
+            <CreateAccountText onPress={() => Alert.alert('Criar Conta')}>
+              Criar conta
+            </CreateAccountText>
+          </FooterText>
+        </Container>
+    );
+    
 }
