@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
 import {
-  Text,
-  Image
+  Text
 } from 'react-native';
+import {
+  Container,
+  LogoContainer,
+  LogoText,
+  TextHighlight,
+  Subtitle,
+  Input,
+  RememberMeContainer,
+  RememberMeText,
+  LoginButton,
+  LoginButtonText,
+  FooterText,
+  CreateAccountText,
+} from './styles.js';
 import { CheckBox } from '@react-native-community/checkbox';
 
 const LoginScreen = () => {
@@ -13,7 +26,7 @@ const LoginScreen = () => {
     return (
         <Container>
           <LogoContainer>
-            <LogoText>Compas<TextHighlight>Shop</TextHighlight></LogoText>
+            <LogoText>Compas<TextHighlight>S</TextHighlight>hop</LogoText>
           </LogoContainer>
     
           <Subtitle>Entre com seu email e senha para usar o app</Subtitle>
@@ -36,7 +49,7 @@ const LoginScreen = () => {
               value={rememberMe}
               onValueChange={setRememberMe}
             />
-            <Text>Lembrar senha</Text>
+            <RememberMeText>Lembrar senha</RememberMeText>
           </RememberMeContainer>
     
           <LoginButton onPress={handleLogin}>
@@ -53,3 +66,5 @@ const LoginScreen = () => {
     );
     
 }
+
+export default LoginScreen;
