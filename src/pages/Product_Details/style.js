@@ -189,3 +189,34 @@ export const AddCartText = styled.Text`
   font-size: 14px;
   color: #fff;
 `;
+
+export const ModalOpacity = styled.View`
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+`;
+
+export const ModalContainer = styled.View`
+  background-color: #fff;
+  width: 100%;
+  height: 214px;
+  position: absolute;
+  bottom: 0;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  elevation: 5;
+`;
+
+export const CloseButton = styled.TouchableOpacity`
+  background-Color: blue;
+  width: 30px;
+  height: 30px;
+`;
+
+export const CloseIcon = styled(Icons.Search)`
+`;

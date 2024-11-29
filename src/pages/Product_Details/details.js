@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Modal, TouchableWithoutFeedback } from 'react-native';
 import {
   Container, 
   Header,
@@ -33,6 +34,9 @@ import {
   AddCartButtom,
   AddCartIcon,
   AddCartText,
+  ModalContainer,
+  CloseButton,
+  ModalOpacity,
 } from './style';
 
 export default function Details(){
@@ -99,6 +103,17 @@ export default function Details(){
           <AddCartText onPress={() => setVisibleModal(true)}>Adicionar ao carrinho</AddCartText>
         </AddCartButtom>
       </Actions>
+
+
+      <Modal transparent={true} animationType='fade' visible={visibleModal}>
+        <TouchableWithoutFeedback onPress={() => setVisibleModal(false)}>
+          <ModalOpacity>
+            <ModalContainer onStartShouldSetResponder={() => true}>
+              <CloseButton onPress={() => setVisibleModal(false)}></CloseButton>
+            </ModalContainer>  
+          </ModalOpacity>
+        </TouchableWithoutFeedback>
+      </Modal>
     </Container>
   );
 }
