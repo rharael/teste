@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Icons from '../../assets/icons/index';
 
 export const Container = styled.View`
   flex: 1;
@@ -36,12 +37,11 @@ export const ShoppingCart = styled.TouchableOpacity`
   height: 35px;
   border: 1px solid #000;
   border-radius: 8px;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const ShoppingCartImage = styled.Image`
-  width: 18px;
-  height: 18px;
-  margin: auto;
+export const ShoppingCartImage = styled(Icons.ShopCart)`
 `;
 
 export const SearchProductWrapper = styled.View`
@@ -52,6 +52,7 @@ export const SearchProductWrapper = styled.View`
   border-radius: 12px;
   margin: 16px 0 10px 0;
   padding: 0 10px;
+  align-items: center;
 `;
 
 export const SearchProduct = styled.TextInput`
@@ -59,10 +60,7 @@ export const SearchProduct = styled.TextInput`
   padding-left: 10px;
 `; 
 
-export const SearchIcon = styled.Image`
-  width: 18px;
-  height: 18px;
-  margin: auto 0;
+export const SearchIcon = styled(Icons.Search)`
 `;
 
 export const Main = styled.ScrollView`
@@ -70,7 +68,6 @@ export const Main = styled.ScrollView`
 
 export const SectionTitle = styled.Text`
   font-size: 16px;
-  font-weight: 600;
   color: #07100D;
   margin: 18px 0 13px 0;
 `;
@@ -95,10 +92,23 @@ export const CategoryImage = styled.View`
   margin: 0 auto;
   border-radius: 50%;
   background-Color: #f5f5f5;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const CategoryIcon = styled.Image`
-  margin: auto;
+export const CategoryIcon1 = styled(Icons.CatPhone)`
+`;
+
+export const CategoryIcon2 = styled(Icons.CatBed)`
+`;
+
+export const CategoryIcon3 = styled(Icons.CatToy)`
+`;
+
+export const CategoryIcon4 = styled(Icons.CatGames)`
+`;
+
+export const CategoryIcon5 = styled(Icons.CatLaptops)`
 `;
 
 export const CategoryText = styled.Text`
@@ -159,9 +169,7 @@ export const ProductStars = styled.View`
   gap: 4px;
 `;
 
-export const ProductStarIcon = styled.Image`
-  width: 16px;
-  height: 16px;
+export const ProductStarIcon = styled(Icons.Star)`
 `;
 
 export const ProductStarValue = styled.Text`

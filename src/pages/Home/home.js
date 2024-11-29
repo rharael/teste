@@ -16,7 +16,11 @@ import {
   Categories,
   CategoryItem,
   CategoryImage,
-  CategoryIcon,
+  CategoryIcon1,
+  CategoryIcon2,
+  CategoryIcon3,
+  CategoryIcon4,
+  CategoryIcon5,
   CategoryText,
   Products,
   ProductItem,
@@ -42,12 +46,12 @@ export default function Home(){
           </WelcomeDiv>
 
           <ShoppingCart>
-            <ShoppingCartImage source={require('../../assets/icons/cart.png')}/>
+            <ShoppingCartImage/>
           </ShoppingCart>
         </HeaderDiv>
         
         <SearchProductWrapper>
-          <SearchIcon source={require('../../assets/icons/search.png')}/>
+          <SearchIcon/>
           <SearchProduct placeholder='Buscar Produto'/>
         </SearchProductWrapper>
       </Header>
@@ -57,35 +61,35 @@ export default function Home(){
         <Categories horizontal showsHorizontalScrollIndicator={false}>
           <CategoryItem>
             <CategoryImage>
-              <CategoryIcon source={require('../../assets/icons/smartphone.png')}/>
+              <CategoryIcon1/>
             </CategoryImage>
             <CategoryText>Smartphone</CategoryText>
           </CategoryItem>
 
           <CategoryItem>
             <CategoryImage>
-              <CategoryIcon source={require('../../assets/icons/bed.png')}/>
+              <CategoryIcon2/>
             </CategoryImage>
             <CategoryText>Cama</CategoryText>
           </CategoryItem>
 
           <CategoryItem>
             <CategoryImage>
-              <CategoryIcon source={require('../../assets/icons/toy.png')}/>
+              <CategoryIcon3/>
             </CategoryImage>
             <CategoryText>Brinquedos</CategoryText>
           </CategoryItem>
 
           <CategoryItem>
             <CategoryImage>
-              <CategoryIcon source={require('../../assets/icons/game.png')}/>
+              <CategoryIcon4/>
             </CategoryImage>
             <CategoryText>Games</CategoryText>
           </CategoryItem>
 
           <CategoryItem>
             <CategoryImage>
-              <CategoryIcon source={require('../../assets/icons/notebook.png')}/>
+              <CategoryIcon5/>
             </CategoryImage>
             <CategoryText>Notebooks</CategoryText>
           </CategoryItem>
@@ -105,7 +109,7 @@ export default function Home(){
               <ProductPrice>R$ 6.999,00</ProductPrice>
               
               <ProductStars>
-                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarIcon/>
                 <ProductStarValue>5.0</ProductStarValue>
               </ProductStars>
             </ProductInformation>
@@ -121,7 +125,7 @@ export default function Home(){
               <ProductPrice>R$ 6.999,00</ProductPrice>
 
               <ProductStars>
-                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarIcon/>
                 <ProductStarValue>5.0</ProductStarValue>
               </ProductStars>
             </ProductInformation>
@@ -137,7 +141,7 @@ export default function Home(){
               <ProductPrice>R$ 6.999,00</ProductPrice>
 
               <ProductStars>
-                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarIcon/>
                 <ProductStarValue>5.0</ProductStarValue>
               </ProductStars>
             </ProductInformation>
@@ -153,7 +157,7 @@ export default function Home(){
               <ProductPrice>R$ 6.999,00</ProductPrice>
 
               <ProductStars>
-                <ProductStarIcon source={require('../../assets/icons/star.png')}/>
+                <ProductStarIcon/>
                 <ProductStarValue>5.0</ProductStarValue>
               </ProductStars>
             </ProductInformation>
