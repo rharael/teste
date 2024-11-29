@@ -13,4 +13,11 @@ function Favorite(){
     );
 }
 
+function FavoriteItems(){
+    <ContainerItems>
+        <Title>Apple Iphone 14 Pro</Title>
+        <Text>R$6999,00</Text>
+    </ContainerItems>
+}
+
 export default Favorite;
