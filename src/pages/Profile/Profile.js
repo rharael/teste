@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import {Text, View } from 'react-native';
-import Screen from './src/components/Screen';
+import Screen from '../../components/Screen';
 import { Header, ProfileName, ProfileEmail, MenuContainer,
 	MenuItem, MenuIcon, MenuTitle, MenuSubtitle, MenuTextContainer, Arrow, MenuItemLeft } from './styles'
 export default function Profile() {
