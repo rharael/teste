@@ -9,6 +9,7 @@ An e-commerce application developed in React Native to manage and display produc
 - React Native Navigation (v7.40.3)
 - Styled-Components (v6.1.13)
 - Axios (v1.7.8)
+- React Native SVG (v15.8.0)
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ Follow these steps to set up and run the project locally:
 1. **Clone the repository:**
 
    ```
-   git clone https://github.com/your-username/ecommerceshop.git
+   git clone https://github.com/rharael/ecommerceshop.git
    cd ecommerceshop
    ```
 
@@ -42,7 +43,7 @@ Follow these steps to set up and run the project locally:
    To start the app using Expo:
 
    ```
-   npm run start
+   npx expo start
    ```
 
    Or use one of the following commands to run directly on an emulator or device:
