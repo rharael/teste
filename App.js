@@ -1,12 +1,28 @@
-import React from 'react';
-import Login from './src/pages/Login/login';
-import CreateAccount from './src/pages/Create_Account/createAccount';
-import Home from './src/pages/Home/home';
-import Details from './src/pages/Product_Details/details'
-import Favorite from './src/pages/Favorites/favorites';
-import Profile from './src/pages/Profile/Profile';
+import React, { useEffect, useState } from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import Routes from './src/routes/index';
+import { loadFonts } from './src/assets/fonts/fonts';
+import AppLoading from 'expo-app-loading';
 
-const App = () =>{
-  return <Details />;
+export default function App(){
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  const load = async () => {
+    await loadFonts();
+    setFontsLoaded(true);
+  }
+
+  if(!fontsLoaded){
+    return <AppLoading/>
+  }
+
+  return(
+      <NavigationContainer>
+        <Routes/>
+      </NavigationContainer>
+  );
 };
- export default App;

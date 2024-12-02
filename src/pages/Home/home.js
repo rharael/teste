@@ -1,170 +1,144 @@
-import { View, Text } from 'react-native';
-import {
-  Container,
-  Header,
-  HeaderDiv,
-  WelcomeDiv,
-  WelcomeText,
-  UserName,
-  ShoppingCart,
-  ShoppingCartImage,
-  Main,
-  SearchProductWrapper,
-  SearchProduct,
-  SearchIcon,
-  SectionTitle,
-  Categories,
-  CategoryItem,
-  CategoryImage,
-  CategoryIcon1,
-  CategoryIcon2,
-  CategoryIcon3,
-  CategoryIcon4,
-  CategoryIcon5,
-  CategoryText,
-  Products,
-  ProductItem,
-  ProductAreaImage,
-  ProductImage,
-  ProductName,
-  ProductInformation,
-  ProductPrice,
-  ProductStars,
-  ProductStarIcon,
-  ProductStarValue,
-  LineDiv
-} from './styles';
+import React, {useState, useEffect} from 'react'
+import { Keyboard, FlatList } from 'react-native';
+import Styles from './styles';
+import ProductCard from './ProductCard';
+import Api from '../../services/Api';
+import { ActivityIndicator } from 'react-native';
 
 export default function Home(){
-  return(
-    <Container>
-      <Header>
-        <HeaderDiv>
-          <WelcomeDiv>
-            <WelcomeText>Bem-vindo</WelcomeText>
-            <UserName>Nome do Usuário</UserName>
-          </WelcomeDiv>
+  const [columns, setColumns] = useState(2);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
+  const [searchProduct, setSearchProduct] = useState('');
+  const [loading, setLoading] = useState(false);
 
-          <ShoppingCart>
-            <ShoppingCartImage/>
-          </ShoppingCart>
-        </HeaderDiv>
+  useEffect( () => {
+    fetchCategories();
+    fetchProducts();
+  }, []);
+
+  const fetchCategories = async () => {
+    try{
+      const response = await Api.get('products/categories');
+      setCategories(response.data);
+    }
+    catch(error){
+      console.error('Error when searching categories: ', error);
+    }
+  };
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try{
+      const response = await Api.get('products');
+      setProducts(response.data);
+      setFilterProducts(response.data);
+    }
+    catch(error){
+      console.error('Error when searching for products: ', error);
+    }
+    finally{
+      setLoading(false);
+    }
+  };
+
+  const handleCategory = async (category) => {
+    const filter = products.filter((product) => 
+      product.category === category
+    );
+    setFilterProducts(filter);
+  };
+
+  const handleSearch = async (search) => {
+    setSearchProduct(search);
+    
+    if(search.trim() === ''){
+      setFilterProducts(products);
+    }
+    else{
+      const filter = products.filter((product) => 
+        product.title.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilterProducts(filter);
+    }
+  };
+
+  if(loading){
+    return(
+      <Styles.LoadingContainer>
+        <ActivityIndicator
+          color='#121212'
+          size={45}
+        />
+      </Styles.LoadingContainer>
+    )
+  }
+
+  else{
+    return(
+      <Styles.Container>
+      <Styles.Header>
+        <Styles.HeaderDiv>
+          <Styles.WelcomeDiv>
+            <Styles.WelcomeText>Bem-vindo</Styles.WelcomeText>
+            <Styles.UserName>Nome do Usuário</Styles.UserName>
+          </Styles.WelcomeDiv>
+
+          <Styles.ShoppingCart>
+            <Styles.ShoppingCartImage/>
+          </Styles.ShoppingCart>
+        </Styles.HeaderDiv>
         
-        <SearchProductWrapper>
-          <SearchIcon/>
-          <SearchProduct placeholder='Buscar Produto'/>
-        </SearchProductWrapper>
-      </Header>
+        <Styles.SearchProductWrapper>
+          <Styles.SearchIcon/>
+            <Styles.SearchProduct 
+              placeholder='Buscar Produto'
+              value={searchProduct}
+              onChangeText={handleSearch}
+              onSubmitEditing={Keyboard.dismiss}
+            />
+        </Styles.SearchProductWrapper>
+      </Styles.Header>
 
-      <Main showsVerticalScrollIndicator={false}>
-        <SectionTitle>Categorias</SectionTitle>
-        <Categories horizontal showsHorizontalScrollIndicator={false}>
-          <CategoryItem>
-            <CategoryImage>
-              <CategoryIcon1/>
-            </CategoryImage>
-            <CategoryText>Smartphone</CategoryText>
-          </CategoryItem>
+      {filterProducts.length === 0 ? (
+        <Styles.EmptyContainer>
+          <Styles.EmptyImage source={require('../../assets/images/search.png')}/>
+          <Styles.EmptyTitle>Nenhum produto encontrado</Styles.EmptyTitle>
+          <Styles.EmptySubitle>Tente novamente</Styles.EmptySubitle>
+        </Styles.EmptyContainer>
+        
+        ) : (
 
-          <CategoryItem>
-            <CategoryImage>
-              <CategoryIcon2/>
-            </CategoryImage>
-            <CategoryText>Cama</CategoryText>
-          </CategoryItem>
+        <Styles.Main showsVerticalScrollIndicator={false}>
+          <Styles.SectionTitle>Categorias</Styles.SectionTitle>
+        
+          <Styles.Categories horizontal showsHorizontalScrollIndicator={false}>
+            {categories.map((category) => (
+              <Styles.CategoryItem key={category} onPress={() => handleCategory(category)}>
+                <Styles.CategoryImage>
+                  <Styles.CategoryIcon />
+                </Styles.CategoryImage>
+                <Styles.CategoryText>{category}</Styles.CategoryText>
+              </Styles.CategoryItem>
+            ))}
+          </Styles.Categories>
 
-          <CategoryItem>
-            <CategoryImage>
-              <CategoryIcon3/>
-            </CategoryImage>
-            <CategoryText>Brinquedos</CategoryText>
-          </CategoryItem>
-
-          <CategoryItem>
-            <CategoryImage>
-              <CategoryIcon4/>
-            </CategoryImage>
-            <CategoryText>Games</CategoryText>
-          </CategoryItem>
-
-          <CategoryItem>
-            <CategoryImage>
-              <CategoryIcon5/>
-            </CategoryImage>
-            <CategoryText>Notebooks</CategoryText>
-          </CategoryItem>
-        </Categories>
-
-        <LineDiv/>
-
-        <SectionTitle>Produtos</SectionTitle>
-        <Products>      
-          <ProductItem>
-            <ProductAreaImage>
-              <ProductImage source={require('../../assets/images/iphone.png')}/>
-            </ProductAreaImage>
-            <ProductName>Apple IPhone 14 Pro</ProductName>
-
-            <ProductInformation>
-              <ProductPrice>R$ 6.999,00</ProductPrice>
-              
-              <ProductStars>
-                <ProductStarIcon/>
-                <ProductStarValue>5.0</ProductStarValue>
-              </ProductStars>
-            </ProductInformation>
-          </ProductItem>
-
-          <ProductItem>
-            <ProductAreaImage>
-              <ProductImage source={require('../../assets/images/iphone.png')}/>
-            </ProductAreaImage>
-            <ProductName>Apple IPhone 14 Pro</ProductName>
-
-            <ProductInformation>
-              <ProductPrice>R$ 6.999,00</ProductPrice>
-
-              <ProductStars>
-                <ProductStarIcon/>
-                <ProductStarValue>5.0</ProductStarValue>
-              </ProductStars>
-            </ProductInformation>
-          </ProductItem>
-
-          <ProductItem>
-            <ProductAreaImage>
-              <ProductImage source={require('../../assets/images/iphone.png')}/>
-            </ProductAreaImage>
-            <ProductName>Apple IPhone 14 Pro</ProductName>
-
-            <ProductInformation>
-              <ProductPrice>R$ 6.999,00</ProductPrice>
-
-              <ProductStars>
-                <ProductStarIcon/>
-                <ProductStarValue>5.0</ProductStarValue>
-              </ProductStars>
-            </ProductInformation>
-          </ProductItem>
-
-          <ProductItem>
-            <ProductAreaImage>
-              <ProductImage source={require('../../assets/images/iphone.png')}/>
-            </ProductAreaImage>
-            <ProductName>Apple IPhone 14 Pro</ProductName>
-
-            <ProductInformation>
-              <ProductPrice>R$ 6.999,00</ProductPrice>
-
-              <ProductStars>
-                <ProductStarIcon/>
-                <ProductStarValue>5.0</ProductStarValue>
-              </ProductStars>
-            </ProductInformation>
-          </ProductItem>
-
-        </Products>
-      </Main>
-    </Container>
-  );
-}
+          <Styles.LineDiv/>
+          <Styles.SectionTitle>Produtos</Styles.SectionTitle>
+        
+          <Styles.Products>      
+            <FlatList
+              data={filterProducts}
+              keyExtractor={(item) => String(item.id)}
+              renderItem={({item}) => <ProductCard data={item}/>}
+              numColumns={columns}
+              columnWrapperStyle = {{justifyContent:'space-between'}}
+              scrollEnabled={false}
+            />
+          </Styles.Products>
+        </Styles.Main>
+      )}
+    </Styles.Container>
+  )
+}}

@@ -1,92 +1,103 @@
 import styled from 'styled-components/native';
 import Icons from '../../assets/icons/index';
 
-export const Container = styled.View`
+const Container = styled.View`
   flex: 1;
-  background-Color: #fff;
-  width: 353px;
-  margin: 0 auto;
+  background-color: #fff;
+  padding: 0 20px;
 `;
 
-export const Header = styled.View`
-  height: 60px;
+const Header = styled.View`
+  height: 40px;
+  margin-top: 30px;
   justify-content: center;
+  background-color: #fff;
 `;
 
-export const BackButton = styled.TouchableOpacity`
+const BackButton = styled.TouchableOpacity`
   width: 18%;
   height: 100%;
   justify-content: center;
 `;
 
-export const BackIcon = styled(Icons.Arrow)`
+const BackIcon = styled(Icons.Back)`
 `;
 
-export const Product = styled.ScrollView`
+const Product = styled.ScrollView`
 `;
 
-export const ProductImageArea = styled.View`
+const ProductImageArea = styled.View`
   width: 100%;
-  height: 350px;
+  height: 330px;
+  padding: 35px;
   justify-content: center;
   align-items: center;
 `;
 
-export const ProductImage = styled.Image`
-  width: 229px;
-  height: 295px;
+const ProductImage = styled.Image`
+  height: 100%;
+  width: 100%;
+  resize-mode: contain;
 `;
 
-export const ProductHeader = styled.View`
+const ProductHeader = styled.View`
   flex-direction: row;
+  flex-shrink: 1;
   justify-content: space-between;
   align-items: center;
+  margin: 5px 0 10px;
 `;
 
-export const ProductTitle = styled.Text`
-  font-size: 22px;
+const ProductTitle = styled.Text`
+  font-size: 20px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+  width: 75%;
 `;
 
-export const IconsArea = styled.View`
+const IconsArea = styled.View`
   flex-direction: row;
-  gap: 2px;
+  gap: 15px;
 `;
 
-export const IconButton = styled.TouchableOpacity`
+const IconButton = styled.TouchableOpacity`
   width: 30px;
   height: 30px;
   justify-content: center;
   align-items: center;
 `;
 
-export const ShareIcon = styled(Icons.Share)`
+const ShareIcon = styled(Icons.Share)`
 `;
 
-export const FavoriteIcon = styled(Icons.Heart)`
+const FavoriteIcon = styled(Icons.Heart)`
 `;
 
-export const Description = styled.Text`
-  font-size: 14px;
+const Description = styled.Text`
+  font-size: 13px;
+  font-family: 'Urbanist-Medium';
   width: 90%;
-  color: #333;
+  text-align: justify;
+  color: #7C7C7C;
 `;
 
-export const ReadMore = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
+const ReadMore = styled.Text`
+  font-size: 13px;
+  font-family: 'Urbanist-SemiBold';
   text-decoration: underline;
   text-align: right;
   width: 90%;
-  color: #000;
+  color: #0F100D;
 `;
 
-export const ReviewContainer = styled.View`
+const ReviewContainer = styled.View`
   flex-direction: row;
   width: 50%;
   justify-content: space-between;
+  margin: 18px 0 24px;
 `;
 
-export const Stars = styled.View`
+const Stars = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -94,17 +105,19 @@ export const Stars = styled.View`
   border: 1px solid #e3e3e3; 
   width: 68px;
   height: 30px;
-  gap: 5px;
+  gap: 4px;
 `;
 
-export const StarIcon = styled(Icons.Star)`
+const StarIcon = styled(Icons.Star)`
 `;
 
-export const StarContent = styled.Text`
+const StarContent = styled.Text`
   font-size: 13px;
+  font-family: 'Urbanist-Medium';
+  color: #0F100D;
 `;
 
-export const Reviews = styled.View`
+const Reviews = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -112,36 +125,42 @@ export const Reviews = styled.View`
   border-radius: 15px;
   width: 102px;
   height: 30px;
-  gap: 5px;
+  gap: 3px;
 `;
 
-export const ReviewValue = styled.Text`
+const ReviewValue = styled.Text`
   font-size: 13px;
+  font-family: 'Urbanist-Medium';
+  color: #2A2A2A;
 `;
 
-export const ReviewContent = styled.Text`
+const ReviewContent = styled.Text`
   font-size: 13px;
+  font-family: 'Urbanist-Medium';
+  color: #2A2A2A;
 `;
 
-export const DiscountPrice = styled.Text`
+const DiscountPrice = styled.Text`
   font-size: 14px;
+  font-family: 'Urbanist-Medium';
   text-decoration-line: line-through;
-  color: #888;
+  color: #7C7C7C;
 `;
 
-export const ProductPrice = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
+const ProductPrice = styled.Text`
+  font-size: 20px;
+  font-family: 'Urbanist-Bold';
+  color: #0F100D;
+  margin-bottom: 25px;
 `;
 
-export const Actions = styled.View`
+const Actions = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  height: 10%;
+  height: 8.5%;
 `;
 
-export const QuantityControl = styled.View`
+const QuantityControl = styled.View`
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -152,7 +171,7 @@ export const QuantityControl = styled.View`
   gap: 2px;
 `;
 
-export const QuantityButton = styled.TouchableOpacity`
+const QuantityButton = styled.TouchableOpacity`
   background-Color: #fff;
   width: 27px;
   height: 27px;
@@ -161,17 +180,19 @@ export const QuantityButton = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const QuantityUp = styled(Icons.Search)`
+const QuantityUp = styled(Icons.Plus)`
 `;
 
-export const QuantityDown = styled(Icons.Search)`
+const QuantityDown = styled(Icons.Minus)`
 `;
 
-export const QuantityText = styled.Text`
+const QuantityText = styled.Text`
   font-size: 14px;
+  font-family: 'Urbanist-Black';
+  color: #0F100D;
 `;
 
-export const AddCartButtom = styled.TouchableOpacity`
+const AddCartButtom = styled.TouchableOpacity`
   background-Color: #fe724c;
   flex-direction: row;
   justify-content: center;
@@ -182,15 +203,16 @@ export const AddCartButtom = styled.TouchableOpacity`
   gap: 5px;
 `;
 
-export const AddCartIcon = styled(Icons.CartAdd)`
+const AddCartIcon = styled(Icons.CartAdd)`
 `;
 
-export const AddCartText = styled.Text`
+const AddCartText = styled.Text`
   font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
   color: #fff;
 `;
 
-export const ModalOpacity = styled.View`
+const ModalOpacity = styled.View`
   flex: 1;
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: flex-end;
@@ -201,10 +223,11 @@ export const ModalOpacity = styled.View`
   left: 0;
 `;
 
-export const ModalContainer = styled.View`
+const ModalContainer = styled.View`
   background-color: #fff;
   width: 100%;
   height: 214px;
+  padding: 15px;
   position: absolute;
   bottom: 0;
   border-top-right-radius: 15px;
@@ -212,11 +235,68 @@ export const ModalContainer = styled.View`
   elevation: 5;
 `;
 
-export const CloseButton = styled.TouchableOpacity`
-  background-Color: blue;
-  width: 30px;
-  height: 30px;
+const CloseButton = styled.TouchableOpacity`
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  z-index: 1;
 `;
 
-export const CloseIcon = styled(Icons.Search)`
+const CloseIcon = styled(Icons.Close)`
 `;
+
+const AddedCartTitle = styled.Text`
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+`;
+
+const AddedCartSubtitle = styled.Text`
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Urbanist-Regular';
+  color: #7C7C7C;
+  margin: 9px 0 30px;
+`;
+
+const KeepShoppingButton = styled.TouchableOpacity`
+  width: 353px;
+  height: 40px;
+  border-radius: 10px;
+  background-Color: #fe724c;
+  justify-content: center;
+`;
+
+const KeepShoppingText = styled.Text`
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
+  color: #fff;
+`;
+
+const GoToCartButton = styled.TouchableOpacity`
+  width: 353px;
+  height: 40px;
+  border: 1px solid #fe724c;
+  border-radius: 10px;
+  justify-content: center;
+  margin-top: 13px;
+`;
+
+const GoToCartText = styled.Text`
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
+  color: #FE724C;
+`;
+
+const Styles = {
+  Container, Header, BackButton, BackIcon, Product, ProductImageArea, ProductImage, ProductTitle, ProductHeader, IconsArea, IconButton, ShareIcon, FavoriteIcon, Description, ReadMore, ReviewContainer, Stars, Reviews, StarIcon, StarContent, ReviewValue, ReviewContent, DiscountPrice, ProductPrice, Actions, QuantityControl, QuantityButton, QuantityText, QuantityUp, QuantityDown, AddCartButtom, AddCartIcon, AddCartText, ModalContainer, ModalOpacity, CloseButton, CloseIcon, AddedCartTitle, AddedCartSubtitle, KeepShoppingButton, KeepShoppingText, GoToCartButton, GoToCartText
+}
+
+export default Styles;

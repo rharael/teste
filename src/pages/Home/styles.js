@@ -1,38 +1,38 @@
 import styled from 'styled-components/native';
 import Icons from '../../assets/icons/index';
 
-export const Container = styled.View`
+const Container = styled.View`
   flex: 1;
   background-Color: #fff;
-  width: 353px;
-  margin: 0 auto;
+  padding: 0 20px;
 `;
 
-export const Header = styled.View`
+const Header = styled.View`
   padding: 60px 0 0;
 `;
 
-export const HeaderDiv = styled.View`
+const HeaderDiv = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
 
-export const WelcomeDiv = styled.View`
+const WelcomeDiv = styled.View`
 `;
 
-export const WelcomeText = styled.Text`
+const WelcomeText = styled.Text`
   font-size: 11px;
+  font-family: 'Urbanist-Regular';
   color: #7c7c7c;
   margin-bottom: 3px;
 `;
 
-export const UserName = styled.Text`
+const UserName = styled.Text`
   font-size: 14px;
-  font-weight: 600;
-  color: #000;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
 `;
 
-export const ShoppingCart = styled.TouchableOpacity`
+const ShoppingCart = styled.TouchableOpacity`
   width: 35px;
   height: 35px;
   border: 1px solid #000;
@@ -41,10 +41,10 @@ export const ShoppingCart = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const ShoppingCartImage = styled(Icons.ShopCart)`
+const ShoppingCartImage = styled(Icons.ShopCart)`
 `;
 
-export const SearchProductWrapper = styled.View`
+const SearchProductWrapper = styled.View`
   flex-direction: row;
   background-Color: #f0f1f2;
   width: 353px;
@@ -55,24 +55,27 @@ export const SearchProductWrapper = styled.View`
   align-items: center;
 `;
 
-export const SearchProduct = styled.TextInput`
+const SearchProduct = styled.TextInput`
   font-size: 12px;
+  font-family: 'Urbanist-Regular';
   padding-left: 10px;
+  width: 90%;
 `; 
 
-export const SearchIcon = styled(Icons.Search)`
+const SearchIcon = styled(Icons.Search)`
 `;
 
-export const Main = styled.ScrollView`
+const Main = styled.ScrollView`
 `;
 
-export const SectionTitle = styled.Text`
+const SectionTitle = styled.Text`
   font-size: 16px;
+  font-family: 'Urbanist-Bold';
   color: #07100D;
   margin: 18px 0 13px 0;
 `;
 
-export const Categories = styled.ScrollView.attrs(() => ({
+const Categories = styled.ScrollView.attrs(() => ({
   contentContainerStyle: {
     gap: 20
   },
@@ -81,12 +84,12 @@ export const Categories = styled.ScrollView.attrs(() => ({
   width: 100%;
 `;
 
-export const CategoryItem = styled.TouchableOpacity`
+const CategoryItem = styled.TouchableOpacity`
   width: 56px;
   height: 76px;
 `;
 
-export const CategoryImage = styled.View`
+const CategoryImage = styled.View`
   width: 55px;
   height: 55px;
   margin: 0 auto;
@@ -96,83 +99,112 @@ export const CategoryImage = styled.View`
   align-items: center;
 `;
 
-export const CategoryIcon1 = styled(Icons.CatPhone)`
+const CategoryIcon = styled(Icons.CatToy)`
 `;
 
-export const CategoryIcon2 = styled(Icons.CatBed)`
-`;
-
-export const CategoryIcon3 = styled(Icons.CatToy)`
-`;
-
-export const CategoryIcon4 = styled(Icons.CatGames)`
-`;
-
-export const CategoryIcon5 = styled(Icons.CatLaptops)`
-`;
-
-export const CategoryText = styled.Text`
+const CategoryText = styled.Text`
   font-size: 10px;
+  font-family: 'Urbanist-SemiBold';
   color: #0f100d;
   text-align: center;
   margin-top: 9px;
 `;
 
-export const LineDiv = styled.View`
+const LineDiv = styled.View`
   border: 1px solid #f5f5f5;
   margin-top: 27px;
 `;
 
-export const Products = styled.View`
-  flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+const Products = styled.View`
 `;
 
-export const ProductItem = styled.TouchableOpacity`
+const ProductItem = styled.TouchableOpacity`
   width: 168px;
-  height: 243px;
   border-radius: 8px;
+  margin-bottom: 27px;
 `;
 
-export const ProductAreaImage = styled.View`
+const ProductAreaImage = styled.View`
   background-Color: #f5f5f5;
   height: 167px;
   width: 167px;
+  padding: 30px;
   border-radius: 8px;
+  overflow: hidden;
 `;
 
-export const ProductImage = styled.Image`
-  margin: auto;
+const ProductImage = styled.Image`
+  height: 100%;
+  width: 100%;
+  resize-mode: contain;
 `;
 
-export const ProductName = styled.Text`
+const ProductName = styled.Text`
   font-size: 14px;
+  font-family: 'Urbanist-Medium';
   color: #0f100d;
   margin: 8px 0;
 `;
 
-export const ProductPrice = styled.Text`
+const ProductPrice = styled.Text`
   font-size: 13px;
+  font-family: 'Urbanist-SemiBold';
   color: #0f100d;
 `;
 
-export const ProductInformation = styled.View`
+const ProductInformation = styled.View`
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
 `;
 
-export const ProductStars = styled.View`
+const ProductStars = styled.View`
   flex-direction: row;
   gap: 4px;
 `;
 
-export const ProductStarIcon = styled(Icons.Star)`
+const ProductStarIcon = styled(Icons.Star)`
 `;
 
-export const ProductStarValue = styled.Text`
+const ProductStarValue = styled.Text`
   font-size: 13px;
+  font-family: 'Urbanist-Medium';
   color: #0f100d;
 `;
+
+const EmptyContainer = styled.View`
+  align-items: center;
+`;
+
+const EmptyImage = styled.Image`
+  margin-top: 120px
+`;
+
+const EmptyTitle = styled.Text`
+  font-size: 18px;
+  font-family: 'Urbanist-SemiBold';
+  color: #2a2a2a;
+  text-align: center;
+  margin: 14px 0 14px;
+`;
+
+const EmptySubitle = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Regular';
+  color: #7c7c7c;
+  text-align: center;
+`;
+
+const LoadingContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Styles = {
+  Container, Header, HeaderDiv, WelcomeDiv, WelcomeText, UserName, ShoppingCart, ShoppingCartImage, Main, SearchProductWrapper, SearchProduct, SearchIcon, SectionTitle, Categories, CategoryItem, CategoryImage, CategoryIcon, CategoryText, Products, ProductItem, ProductAreaImage, ProductImage, ProductName, ProductInformation, ProductPrice, ProductStars, ProductStarIcon, ProductStarValue, LineDiv, EmptyContainer, EmptyImage, EmptyTitle, EmptySubitle, LoadingContainer
+};
+
+export default Styles;
