@@ -34,6 +34,7 @@ export const Input = styled.TextInput`
   height: 56px;
   padding: 20px;
   background-color: #EEF0F5;
+  border-radius: 8px;
 `;
 
 export const RememberMeContainer = styled.View`
@@ -57,6 +58,7 @@ export const LoginButtonText = styled.Text`
   color: #fff;
   font-size: 16px;
   font-weight: 600;
+  border-radius: 12px;
 `;
 
 export const FooterText = styled.Text`
