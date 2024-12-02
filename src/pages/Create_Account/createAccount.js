@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
     Text
 } from 'react-native';
+import { SubmitButton } from './styles';
 
 const LoginScreen = () => {
     const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ const LoginScreen = () => {
     return (
         <Container>
             <LogoContainer>
-                <LogoText>Compas<TextHighlight>Shop</TextHighlight></LogoText>
+                <LogoText>Compas<TextHighlight>S</TextHighlight>hop</LogoText>
             </LogoContainer>
 
             <Input
@@ -46,9 +47,9 @@ const LoginScreen = () => {
 
             <FooterText>
                 Ainda não possui uma conta?
-                <CreateAccountText onPress={() => Alert.alert('Criar Conta')}>
+                <SubmitButton onPress={() => Alert.alert('Criar Conta')}>
                     Criar conta
-                </CreateAccountText>
+                </SubmitButton>
             </FooterText>
         </Container>
     );
