@@ -1,119 +1,119 @@
 import React, { useState } from 'react';
 import { Modal, TouchableWithoutFeedback } from 'react-native';
-import {
-  Container, 
-  Header,
-  BackButton,
-  BackIcon,
-  Product,
-  ProductImageArea,
-  ProductImage,
-  ProductTitle,
-  ProductHeader,
-  IconsArea,
-  IconButton,
-  ShareIcon,
-  FavoriteIcon,
-  Description,
-  ReadMore,
-  ReviewContainer,
-  Stars,
-  Reviews,
-  StarIcon,
-  StarContent,
-  ReviewValue,
-  ReviewContent,
-  DiscountPrice,
-  ProductPrice,
-  Actions,
-  QuantityControl,
-  QuantityButton,
-  QuantityText,
-  QuantityUp,
-  QuantityDown,
-  AddCartButtom,
-  AddCartIcon,
-  AddCartText,
-  ModalContainer,
-  CloseButton,
-  ModalOpacity,
-} from './style';
+import Styles from './style';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Details(){
+export default function Details({ route, nav }){
+  const navigation = useNavigation();
+  const { product }  = route?.params;
   const [expandedDescription, setExpandedDescription] = useState(false);
   const [visibleModal, setVisibleModal] = useState(false);
+  const [QuantityProduct, setQuantityProduct] = useState(1);
+
+  const handleIncrement = () => {
+    setQuantityProduct((count) => count + 1);
+  };
+
+  const handleDecrement = () => {
+    setQuantityProduct((count) => ( count > 1 ? count - 1 : count ));
+  }
 
   return(
-    <Container>
-      <Header>
-        <BackButton>
-          <BackIcon/>
-        </BackButton>
-      </Header>
+    <Styles.Container>
+      <Styles.Header>
+        <Styles.BackButton 
+        onPress={() => navigation.reset({index: 0, routes:[{name: 'Home'}]})}>
+          <Styles.BackIcon/>
+        </Styles.BackButton>
+      </Styles.Header>
 
-      <Product showsVerticalScrollIndicator={false}>
-        <ProductImageArea>
-          <ProductImage source={require('../../assets/images/iphone.png')}/>
-        </ProductImageArea>
+      <Styles.Product showsVerticalScrollIndicator={false}>
+        <Styles.ProductImageArea>
+          <Styles.ProductImage source={{uri: product.image}}/>
+        </Styles.ProductImageArea>
 
-        <ProductHeader>
-          <ProductTitle>Apple iPhone 14 Pro</ProductTitle>
+        <Styles.ProductHeader>
+          <Styles.ProductTitle>{ product.title }</Styles.ProductTitle>
 
-          <IconsArea>
-            <IconButton>
-              <ShareIcon/>
-            </IconButton>
-            <IconButton>
-              <FavoriteIcon/>
-            </IconButton>
-          </IconsArea>
-        </ProductHeader>
+          <Styles.IconsArea>
+            <Styles.IconButton>
+              <Styles.ShareIcon/>
+            </Styles.IconButton>
+            <Styles.IconButton>
+              <Styles.FavoriteIcon/>
+            </Styles.IconButton>
+          </Styles.IconsArea>
+        </Styles.ProductHeader>
 
-        <Description numberOfLines={expandedDescription ? 0 : 2}>
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Torquent consectetur justo dictumst; suspendisse aliquam duis tellus. Lacinia netus orci aptent amet fames, platea pulvinar. Dignissim commodo non himenaeos eget; dignissim quis.
-        </Description>
-        <ReadMore onPress={() => setExpandedDescription(!expandedDescription)}>
-          {expandedDescription ? "Ler menos" : "Ler mais"}
-        </ReadMore>
+        <Styles.Description numberOfLines={ expandedDescription ? 0 : 2 }>
+          { product.description }
+        </Styles.Description>
+        <Styles.ReadMore onPress={ () => setExpandedDescription(!expandedDescription) }>
+          { expandedDescription ? "Ler menos" : "Ler mais" }
+        </Styles.ReadMore>
 
-        <ReviewContainer>
-          <Stars>
-            <StarIcon/>
-            <StarContent>5.0</StarContent>
-          </Stars>
-          <Reviews>
-            <ReviewValue>23</ReviewValue>
-            <ReviewContent>avaliações</ReviewContent>
-          </Reviews>
-        </ReviewContainer>
+        <Styles.ReviewContainer>
+          <Styles.Stars>
+            <Styles.StarIcon/>
+            <Styles.StarContent>{ product.rating.rate }</Styles.StarContent>
+          </Styles.Stars>
+          <Styles.Reviews>
+            <Styles.ReviewValue>{ product.rating.count }</Styles.ReviewValue>
+            <Styles.ReviewContent>avaliações</Styles.ReviewContent>
+          </Styles.Reviews>
+        </Styles.ReviewContainer>
 
-        <DiscountPrice>R$ 6.999,00</DiscountPrice>
-        <ProductPrice>R$ 6.999,00</ProductPrice>
-      </Product>
+        <Styles.DiscountPrice>$ { product.price }</Styles.DiscountPrice>
+        <Styles.ProductPrice>$ { product.price }</Styles.ProductPrice>
+      </Styles.Product>
 
-      <Actions>
-        <QuantityControl>
-          <QuantityButton><QuantityUp/></QuantityButton>
-          <QuantityText>1</QuantityText>
-          <QuantityButton><QuantityDown/></QuantityButton>
-        </QuantityControl>
+      <Styles.Actions>
+        <Styles.QuantityControl>
+          <Styles.QuantityButton onPress={ handleDecrement }>
+            <Styles.QuantityDown/>
+          </Styles.QuantityButton>
 
-        <AddCartButtom>
-          <AddCartIcon/>
-          <AddCartText onPress={() => setVisibleModal(true)}>Adicionar ao carrinho</AddCartText>
-        </AddCartButtom>
-      </Actions>
+          <Styles.QuantityText> {QuantityProduct} </Styles.QuantityText>
+
+          <Styles.QuantityButton onPress={ handleIncrement }>
+            <Styles.QuantityUp/>
+          </Styles.QuantityButton>
+        </Styles.QuantityControl>
+
+        <Styles.AddCartButtom>
+          <Styles.AddCartIcon/>
+          <Styles.AddCartText onPress={() => setVisibleModal(true)}>Adicionar ao carrinho</Styles.AddCartText>
+        </Styles.AddCartButtom>
+      </Styles.Actions>
 
 
       <Modal transparent={true} animationType='fade' visible={visibleModal}>
         <TouchableWithoutFeedback onPress={() => setVisibleModal(false)}>
-          <ModalOpacity>
-            <ModalContainer onStartShouldSetResponder={() => true}>
-              <CloseButton onPress={() => setVisibleModal(false)}></CloseButton>
-            </ModalContainer>  
-          </ModalOpacity>
+          <Styles.ModalOpacity>
+            <Styles.ModalContainer onStartShouldSetResponder={() => true}>
+
+              <Styles.CloseButton onPress={() => setVisibleModal(false)}>
+                <Styles.CloseIcon/>
+              </Styles.CloseButton>
+
+              <Styles.AddedCartTitle>Adicionado ao carrinho</Styles.AddedCartTitle>
+              <Styles.AddedCartSubtitle>Já é quase seu!</Styles.AddedCartSubtitle>
+
+              <Styles.KeepShoppingButton>
+                <Styles.KeepShoppingText 
+                onPress={() => navigation.reset({index: 0, routes:[{name: 'Home'}]})}>
+                  Continuar comprando
+                </Styles.KeepShoppingText>
+              </Styles.KeepShoppingButton>
+
+              <Styles.GoToCartButton>
+                <Styles.GoToCartText>Ir para o carrinho</Styles.GoToCartText>
+              </Styles.GoToCartButton>
+
+            </Styles.ModalContainer>  
+          </Styles.ModalOpacity>
         </TouchableWithoutFeedback>
       </Modal>
-    </Container>
+    </Styles.Container>
   );
 }
