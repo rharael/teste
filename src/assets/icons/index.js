@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg, { G, Path, Defs, ClipPath, Rect } from "react-native-svg";
+import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from "react-native-svg";
 
 // login page icons
 const EyeFill = ({ width = 24, height = 24, color = '#7C7C7C' }) => (
@@ -219,7 +219,6 @@ const Star = ({width = 16, height = 16, color = '#F0D63A'}) => (
 		fill={color}/>
 	</Svg>
 );
-
 
 // profile page icons
 const UserProfile = ({ width = 16, height = 17, color = '#1E1E1E' }) => (
