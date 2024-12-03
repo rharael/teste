@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, TouchableWithoutFeedback } from 'react-native';
-import Styles from './style';
+import Styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 
 export default function Details({ route, nav }){
