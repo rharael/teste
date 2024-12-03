@@ -4,7 +4,7 @@ import Icons from '../assets/icons';
 
 import Favorite from '../pages/Favorites/favorites';
 import Profile from '../pages/Profile/Profile';
-import Cart from '../pages/Cart/cart'
+import Cart from '../pages/Cart/cart';
 import StackRoutes from './stackRoutes';
 
 const Tab = createBottomTabNavigator();
