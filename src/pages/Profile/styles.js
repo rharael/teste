@@ -117,9 +117,34 @@ const LeaveButtonText = styled.Text`
 	align-items: center;
 `;
 
+// profile user page
+
+const HeaderUser = styled.Text`
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: center;
+`;
+
+const Label = styled.Text`
+	font-size: 16px;
+	margin-bottom: 8px;
+	color: #333333;
+`;
+
+const Input = styled.TextInput`
+	height: 40px;
+	border: 1px solid #e6e6e6;
+	border-radius: 4px;
+	padding: 8px;
+	margin-bottom: 16px;
+	color: #333333;
+`;
+
+
 const Styles = { Container, Header, ProfileName, ProfileEmail,
 	MenuContainer, MenuItem, MenuIcon,
 	MenuTitle, MenuSubtitle, MenuTextContainer , MenuItemLeft, NotificationSwitch,
-	LeaveButton, NotificationText, LeaveButtonText };
+	LeaveButton, NotificationText, LeaveButtonText, HeaderUser, Label, Input };
 
 export default Styles
