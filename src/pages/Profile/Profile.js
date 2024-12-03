@@ -2,10 +2,12 @@ import { useState } from 'react';
 import Styles from './styles';
 import Icons from '../../assets/icons';
 import CustomSwitch from '../../components/Switch';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Profile() {
 	const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
 	const toggleSwitch = () => setIsNotificationsEnabled((prev) => !prev);
+	const navigation = useNavigation()
 
   return (
 	<Styles.Container>
@@ -14,7 +16,7 @@ export default function Profile() {
 		<Styles.ProfileEmail>joao.neves@gemail.com</Styles.ProfileEmail>
 		</Styles.Header>
 	<Styles.MenuContainer>
-		<Styles.MenuItem>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileUser')}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.UserProfile />
@@ -27,7 +29,7 @@ export default function Profile() {
 			<Icons.Arrow />
 		</Styles.MenuItem>
 
-		<Styles.MenuItem>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileAddress')}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.AddressPin />
@@ -40,7 +42,7 @@ export default function Profile() {
 			<Icons.Arrow />
 		</Styles.MenuItem>
 
-		<Styles.MenuItem>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileHelp')}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.Help />
