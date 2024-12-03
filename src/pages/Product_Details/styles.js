@@ -3,15 +3,17 @@ import Icons from '../../assets/icons/index';
 
 const Container = styled.View`
   flex: 1;
-  background-color: #fff;
-  padding: 0 20px;
+  background-Color: #fff;
+  width: 393px;
+  margin: 20px auto 0px;
 `;
 
 const Header = styled.View`
   height: 40px;
-  margin-top: 30px;
+  margin: 30px auto 0px;
   justify-content: center;
   background-color: #fff;
+  width: 353px;
 `;
 
 const BackButton = styled.TouchableOpacity`
@@ -24,6 +26,8 @@ const BackIcon = styled(Icons.Back)`
 `;
 
 const Product = styled.ScrollView`
+  width: 353px;
+  margin: 0 auto;
 `;
 
 const ProductImageArea = styled.View`
@@ -158,6 +162,8 @@ const Actions = styled.View`
   flex-direction: row;
   justify-content: space-between;
   height: 8.5%;
+  width: 353px;
+  margin: 0 auto;
 `;
 
 const QuantityControl = styled.View`

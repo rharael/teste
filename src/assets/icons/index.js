@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg, { G, Path, Defs, ClipPath, Rect } from "react-native-svg";
+import Svg, { Circle, ClipPath, Defs, G, Path, Rect } from "react-native-svg";
 
 // login page icons
 const EyeFill = ({ width = 24, height = 24, color = '#7C7C7C' }) => (

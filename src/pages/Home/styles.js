@@ -4,11 +4,14 @@ import Icons from '../../assets/icons/index';
 const Container = styled.View`
   flex: 1;
   background-Color: #fff;
-  padding: 0 20px;
+  width: 393px;
+  margin: 20px auto 0px;
 `;
 
 const Header = styled.View`
+  width: 353px;
   padding: 60px 0 0;
+  margin: 0 auto;
 `;
 
 const HeaderDiv = styled.View`
@@ -72,7 +75,8 @@ const SectionTitle = styled.Text`
   font-size: 16px;
   font-family: 'Urbanist-Bold';
   color: #07100D;
-  margin: 18px 0 13px 0;
+  margin: 18px auto 13px;
+  width: 353px;
 `;
 
 const Categories = styled.ScrollView.attrs(() => ({
@@ -81,7 +85,8 @@ const Categories = styled.ScrollView.attrs(() => ({
   },
 }))`
   max-height: 76px;
-  width: 100%;
+  width: 353px;
+  margin: 0 auto;
 `;
 
 const CategoryItem = styled.TouchableOpacity`
@@ -112,10 +117,13 @@ const CategoryText = styled.Text`
 
 const LineDiv = styled.View`
   border: 1px solid #f5f5f5;
-  margin-top: 27px;
+  margin: 27px auto 0;
+  width: 353px;
 `;
 
 const Products = styled.View`
+  width: 353px;
+  margin: 0 auto;
 `;
 
 const ProductItem = styled.TouchableOpacity`

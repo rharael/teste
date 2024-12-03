@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import {Text, Switch, } from 'react-native';
-import Screen from '../../components/Screen'
 import Styles from './styles';
 import Icons from '../../assets/icons';
+import CustomSwitch from '../../components/Switch';
 
 export default function Profile() {
 	const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
 	const toggleSwitch = () => setIsNotificationsEnabled((prev) => !prev);
 
   return (
-	<Screen>
+	<Styles.Container>
     <Styles.Header>
 		<Styles.ProfileName>João das Neves</Styles.ProfileName>
 		<Styles.ProfileEmail>joao.neves@gemail.com</Styles.ProfileEmail>
@@ -18,7 +17,7 @@ export default function Profile() {
 		<Styles.MenuItem>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
-				<Icons.UserProfile />
+					<Icons.UserProfile />
 				</Styles.MenuIcon>
 				<Styles.MenuTextContainer>
 					<Styles.MenuTitle>Perfil</Styles.MenuTitle>
@@ -55,18 +54,12 @@ export default function Profile() {
 		</Styles.MenuItem>
 		<Styles.NotificationSwitch>
 			<Styles.NotificationText>Notificações</Styles.NotificationText>
-			<Switch
-			trackColor={{ false: '#767676', true: '#FE724C' }}
-			thumbColor={isNotificationsEnabled ? '#FFFFFF' : '#F1F1F1'}
-			onValueChange={toggleSwitch}
-			value={isNotificationsEnabled}
-			/>
-      </Styles.NotificationSwitch>
-	  <Styles.LeaveButton>
-		<Text>Sair do aplicativo</Text>
-	</Styles.LeaveButton>
+			<CustomSwitch value={isNotificationsEnabled} onValueChange={toggleSwitch}/>
+    	</Styles.NotificationSwitch>
+		<Styles.LeaveButton>
+			<Styles.LeaveButtonText>Sair do aplicativo...</Styles.LeaveButtonText>
+		</Styles.LeaveButton>
 	</Styles.MenuContainer>
-	</Screen>
-
+	</Styles.Container>
   );
 }
