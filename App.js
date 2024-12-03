@@ -22,9 +22,8 @@ export default function App(){
   }
 
   return(
-        <Cart />
-      // <NavigationContainer>
-      //   <Routes/>
-      // </NavigationContainer>
+      <NavigationContainer>
+        <Routes/>
+      </NavigationContainer>
   );
 };
