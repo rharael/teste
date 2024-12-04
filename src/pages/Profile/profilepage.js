@@ -16,7 +16,7 @@ export default function Profile() {
 		<Styles.ProfileEmail>joao.neves@gemail.com</Styles.ProfileEmail>
 		</Styles.Header>
 	<Styles.MenuContainer>
-		<Styles.MenuItem onPress={() => navigation.navigate('ProfileUser')}>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileUser', { headerTitle: 'Perfil' })}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.UserProfile />
@@ -29,7 +29,7 @@ export default function Profile() {
 			<Icons.Arrow />
 		</Styles.MenuItem>
 
-		<Styles.MenuItem onPress={() => navigation.navigate('ProfileAddress')}>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileAddress', { headerTitle: 'Endereço' })}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.AddressPin />
@@ -42,7 +42,7 @@ export default function Profile() {
 			<Icons.Arrow />
 		</Styles.MenuItem>
 
-		<Styles.MenuItem onPress={() => navigation.navigate('ProfileHelp')}>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileHelp', { headerTitle: 'Ajuda' })}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.Help />
@@ -59,7 +59,7 @@ export default function Profile() {
 			<CustomSwitch value={isNotificationsEnabled} onValueChange={toggleSwitch}/>
     	</Styles.NotificationSwitch>
 		<Styles.LeaveButton>
-			<Styles.LeaveButtonText>Sair do aplicativo...</Styles.LeaveButtonText>
+			<Styles.LeaveButtonText>Sair do aplicativo</Styles.LeaveButtonText>
 		</Styles.LeaveButton>
 	</Styles.MenuContainer>
 	</Styles.Container>

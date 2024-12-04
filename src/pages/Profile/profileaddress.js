@@ -8,7 +8,6 @@ export default function ProfileAddress(){
 
   return (
     <Styles.Container>
-      <Styles.HeaderUser>Endereço</Styles.HeaderUser>
       <Styles.Label>CEP</Styles.Label>
 	  <Styles.Input />
 
