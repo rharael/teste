@@ -12,8 +12,8 @@ const Container = styled.View`
 const Header = styled.View`
 	align-items: center;
 	justify-content: center;
-	margin-bottom: ${height * 0.10};
-	margin-top: ${height * 0.12};
+	margin-bottom: ${height * 0.10}px;
+	margin-top: ${height * 0.12}px;
 `;
 
 const ProfileName = styled.Text`
@@ -31,7 +31,7 @@ const ProfileEmail = styled.Text`
 
 const MenuContainer = styled.View`
 	height: 70%;
-	gap: ${height * 0.04};
+	gap: ${height * 0.04}px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -44,7 +44,7 @@ const MenuItem = styled.TouchableOpacity`
 	align-items: center;
 	justify-content: space-between;
 	border-bottom-color: #EBEDF3;
-	borderBottomWidth: 1;
+	borderBottomWidth: 1px;
 	padding-bottom: 22px;
 `;
 
@@ -82,7 +82,7 @@ const MenuSubtitle = styled.Text`
 
 const NotificationSwitch = styled.View`
 	width: 95%;
-	margin-top: ${height * 0.009};
+	margin-top: ${height * 0.009}px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -98,7 +98,7 @@ const NotificationText = styled.Text`
 `;
 
 const LeaveButton = styled.TouchableOpacity`
-	margin-top: ${height * 0.10};
+	margin-top: ${height * 0.10}px;
 	margin-bottom: 30px;
 	align-items: center;
 	width: 95%;
@@ -118,12 +118,10 @@ const LeaveButtonText = styled.Text`
 `;
 
 // profile user page
-
-const HeaderUser = styled.Text`
-	font-size: 24px;
-	font-weight: bold;
-	margin-bottom: 20px;
-	text-align: center;
+const HeaderUser = styled.View`
+	align-items: center;
+	justify-content: center;
+	margin-bottom: ${height * 0.10}px;
 `;
 
 const Label = styled.Text`

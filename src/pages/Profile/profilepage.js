@@ -1,22 +1,63 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BackHandler } from 'react-native';
 import Styles from './styles';
 import Icons from '../../assets/icons';
 import CustomSwitch from '../../components/Switch';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Api from '../../services/Api';
 
 export default function Profile() {
 	const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
 	const toggleSwitch = () => setIsNotificationsEnabled((prev) => !prev);
 	const navigation = useNavigation()
+	const handleExit = () => {
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'HomeStack' }],
+		});
+		BackHandler.exitApp();
+		return true;
+	};
+	const [userData, setUserData] = useState({
+		name: "",
+		birthDate: "",
+		email: "",
+		phone: "",
+	  });
+	const loadData = async () => {
+		try {
+		  const storedData = await AsyncStorage.getItem("userData");
+		  if (storedData) {
+			setUserData(JSON.parse(storedData));
+		  } else {
+			const response = await Api.get("users/1");
+			const fetchedData = {
+			  name: `${response.data.name.firstname} ${response.data.name.lastname}`,
+			  birthDate: "08/08/2000",
+			  email: response.data.email,
+			  phone: response.data.phone,
+			};
+			setUserData(fetchedData);
+			await AsyncStorage.setItem("userData", JSON.stringify(fetchedData));
+		  }
+		} catch (error) {
+		  Alert.alert("Erro", "Não foi possível carregar os dados.");
+		}
+	  };
+
+	  useEffect(() => {
+		loadData();
+	  }, []);
 
   return (
 	<Styles.Container>
     <Styles.Header>
-		<Styles.ProfileName>João das Neves</Styles.ProfileName>
-		<Styles.ProfileEmail>joao.neves@gemail.com</Styles.ProfileEmail>
+		<Styles.ProfileName>{userData.name}</Styles.ProfileName>
+		<Styles.ProfileEmail>{userData.email}</Styles.ProfileEmail>
 		</Styles.Header>
 	<Styles.MenuContainer>
-		<Styles.MenuItem onPress={() => navigation.navigate('ProfileUser')}>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileUser', { headerTitle: 'Perfil' })}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.UserProfile />
@@ -29,7 +70,7 @@ export default function Profile() {
 			<Icons.Arrow />
 		</Styles.MenuItem>
 
-		<Styles.MenuItem onPress={() => navigation.navigate('ProfileAddress')}>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileAddress', { headerTitle: 'Endereço' })}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.AddressPin />
@@ -42,7 +83,7 @@ export default function Profile() {
 			<Icons.Arrow />
 		</Styles.MenuItem>
 
-		<Styles.MenuItem onPress={() => navigation.navigate('ProfileHelp')}>
+		<Styles.MenuItem onPress={() => navigation.navigate('ProfileHelp', { headerTitle: 'Ajuda' })}>
 			<Styles.MenuItemLeft>
 				<Styles.MenuIcon>
 					<Icons.Help />
@@ -58,8 +99,8 @@ export default function Profile() {
 			<Styles.NotificationText>Notificações</Styles.NotificationText>
 			<CustomSwitch value={isNotificationsEnabled} onValueChange={toggleSwitch}/>
     	</Styles.NotificationSwitch>
-		<Styles.LeaveButton>
-			<Styles.LeaveButtonText>Sair do aplicativo...</Styles.LeaveButtonText>
+		<Styles.LeaveButton onPress={handleExit}>
+			<Styles.LeaveButtonText>Sair do aplicativo</Styles.LeaveButtonText>
 		</Styles.LeaveButton>
 	</Styles.MenuContainer>
 	</Styles.Container>

@@ -3,7 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import Routes from './src/routes/index';
 import { loadFonts } from './src/assets/fonts/fonts';
 import AppLoading from 'expo-app-loading';
-import Payment from './src/pages/Payment/payment';
 
 export default function App(){
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -22,6 +21,8 @@ export default function App(){
   }
 
   return(
-    <Payment/>
+      <NavigationContainer>
+        <Routes/>
+      </NavigationContainer>
   );
 };
