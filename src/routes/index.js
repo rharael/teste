@@ -4,8 +4,8 @@ import Icons from '../assets/icons';
 
 import Favorite from '../pages/Favorites/favorites';
 import ProfileStack from './profile';
-import Cart from '../pages/Cart/cart'
-import StackRoutes from './stackRoutes';
+import Cart from '../pages/Cart/cart';
+import HomeStack from './homeRoutes';
 
 const Tab = createBottomTabNavigator();
 
@@ -37,7 +37,7 @@ export default function Routes(){
       
       <Tab.Screen
         name='HomeStack'
-        component={StackRoutes}
+        component={HomeStack}
       />
 
       <Tab.Screen
