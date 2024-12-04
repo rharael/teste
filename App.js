@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import { UserProvider } from './src/utils/context/UserContext';
+import AppLoading from 'expo-app-loading';
 import Routes from './src/routes/index';
 import { loadFonts } from './src/assets/fonts/fonts';
-import AppLoading from 'expo-app-loading';
+
 
 export default function App(){
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -21,8 +23,10 @@ export default function App(){
   }
 
   return(
+	<UserProvider>
       <NavigationContainer>
         <Routes/>
       </NavigationContainer>
+	</UserProvider>
   );
 };
