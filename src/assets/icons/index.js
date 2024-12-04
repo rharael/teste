@@ -104,7 +104,7 @@ const CatLaptops = ({ width = 18, height = 18, color = '#0F100D' }) => (
 	</Svg>
 );
 
-const Back = ({width = 20, height = 15, color = '#0F100D'}) => (
+const Back = ({width = 20, height = 18, color = '#0F100D'}) => (
 	<Svg width={width} height={height} viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<Path d="M21 9H1M1 9L8.5 1.5M1 9L8.5 16.5" 
 		stroke={color}
@@ -278,6 +278,25 @@ const Arrow = ({ width = 18, height = 32, color = '#FE724C' }) => (
 	</Svg>
 );
 
+const BackArrow = ({ width = 20, height = 16, color = '#4B4B4B' }) => (
+<Svg width={width} height={height} viewBox="0 0 20 16" fill="none">
+<Path
+  d="M19 8.00002H1.5"
+  stroke={color}
+  strokeWidth={2}
+  strokeLinecap="round"
+  strokeLinejoin="round"
+/>
+<Path
+  d="M8 15L1 8L8 1"
+	stroke={color}
+  strokeWidth={2}
+  strokeLinecap="round"
+  strokeLinejoin="round"
+/>
+</Svg>
+);
+
 const Calendar = ({ width = 14, height = 14, color = '#FE724C' }) => (
 	<Svg width={width} height={height} viewBox="0 0 14 14" fill="none">
     <Path
@@ -346,7 +365,7 @@ const Icons = {
 	CatPhone, CatBed, CatToy, CatGames, CatLaptops, ShopCart, Search, Star,
 	HomeIcon, Favorite, Cart, UserHome,
 	Share, Heart, CartAdd, Back, Close, Plus, Minus,
-	UserProfile, AddressPin, Help, Arrow,
+	UserProfile, AddressPin, Help, Arrow, BackArrow,
 	Calendar, Mail, Phone, Save, Edit,
   };
   
