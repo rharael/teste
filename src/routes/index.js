@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import Icons from '../assets/icons';
 
 import Favorite from '../pages/Favorites/favorites';
-import Profile from '../pages/Profile/Profile';
+import ProfileStack from './profile';
 import Cart from '../pages/Cart/cart'
 import StackRoutes from './stackRoutes';
 
@@ -47,7 +47,7 @@ export default function Routes(){
 
       <Tab.Screen
         name='Profile'
-        component={Profile}
+        component={ProfileStack}
       />
     </Tab.Navigator>
   );
