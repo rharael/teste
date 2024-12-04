@@ -22,6 +22,6 @@ export default function App(){
   }
 
   return(
-      <Payment/>
+    <Payment/>
   );
 };

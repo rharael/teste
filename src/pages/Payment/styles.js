@@ -36,21 +36,73 @@ const Main = styled.ScrollView`
   margin: 0 auto;
 `;
 
-const CardContainer = styled.View`
+const CardPreview = styled.View`
   width: 100%;
   height: 192px;
-  background-color: #5A5A5A;
+  background-color: #2A2A2A;
   border-radius: 20px;
+  padding: 25px;
+  margin-top: 18px;
+`;
+
+const CardPreviewHeader = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const CardPreviewNumber = styled.Text`
+  font-size: 20px;
+  font-family: 'Urbanist-SemiBold';
+  color: #FFF;
+  margin: 23px 0 25px;
+`;
+
+const CardPreviewFooter = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const CardPreviewFooterDiv1 = styled.View`
+  width: 55%;
+`;
+
+const CardPreviewFooterDiv2 = styled.View`
+  gap: 7px;
+`;
+
+const CardPreviewWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+`;
+
+const CardPreviewTitle = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
+  color: #7C7C7C;
+`;
+
+const CardPreviewName = styled.Text`
+  font-size: 20px;
+  font-family: 'Urbanist-SemiBold';
+  color: #FFF;
+`;
+
+const CardPreviewValue = styled.Text`
+  font-size: 15px;
+  font-family: 'Urbanist-Light';
+  color: #FFF;
 `;
 
 const LogoCardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  width: 353;
+  width: 353px;
+  margin-top: 22px;
 `;
 
 const LogoCardOption = styled.TouchableOpacity`
-  border: 1px solid #E3E3E3;
+  border: ${(props) => (props.seleted ? '1px solid #FE724C' : '1px solid #E3E3E3')};
   border-radius: 6px;
   width: 88px;
   height: 34px;
@@ -58,11 +110,91 @@ const LogoCardOption = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const LogoCard = styled.Image`
+
+const InfomationCardContainer = styled.View`
+`;
+
+const InformationCardDiv = styled.View`
+  margin-top: 21px;
+`;
+
+const InformationCardTitle = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist';
+  color: #7C7C7C;
+  margin-bottom: 5px;
+`;
+
+const InformationCardInput1 = styled.TextInput`
+  height: 56px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #EEF0F5;
+  padding: 18px;
+  font-size: 16px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+`;
+
+const InformationCardInput2 = styled.TextInput`
+  height: 56px;
+  width: 149px;
+  border-radius: 8px;
+  background-color: #EEF0F5;
+  padding: 18px;
+  font-size: 16px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+`;
+
+const InformationCardWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const SetPaymentWrapper = styled.View`
+  flex-direction: row;
+  gap: 10px;
+  margin: 11px 0 8px;
+`;
+
+const SetPaymentCheckbox = styled.TouchableOpacity`
+  border: 1px solid #E3E3E3;
+  background-color: ${(props) => (props.selected ? '#FE724C' : 'transparent')};
+  width: 20px;
+  height: 20px;
+`; 
+
+const SetPaymentTitle = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Medium';
+  color: #0F100D;
+`;
+
+const SetPaymentText = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Medium';
+  color: #7C7C7C;
+`;
+
+const SaveCard = styled.TouchableOpacity`
+  height: 56px;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #FE724C;
+  justify-content: center;
+  align-items: center;
+  margin: 33px 0 28px;
+`;
+
+const SaveCardText = styled.Text`
+  font-size: 16px;
+  font-family: 'Urbanist-SemiBold';
+  color: #FFF;
 `;
 
 const Styles = {
-  Container, Header, BackButton, BackIcon, HeaderText, Main, CardContainer, LogoCardContainer, LogoCardOption, LogoCard,
+  Container, Header, BackButton, BackIcon, HeaderText, Main, CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, SetPaymentTitle, SetPaymentText, SaveCard, SaveCardText,
 };
 
 export default Styles;

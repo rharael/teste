@@ -5,7 +5,7 @@ import Details from '../pages/Product_Details/details';
 
 const Stack = createNativeStackNavigator();
 
-export default function StackRoutes(){
+export default function HomeStack(){
   return(
     <Stack.Navigator>
       <Stack.Screen

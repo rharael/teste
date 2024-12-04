@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Profile from '../pages/Profile/profile';
+import Profile from '../pages/Profile/Profile';
 import ProfileUser from '../pages/Profile/profileuser';
 import ProfileAddress from '../pages/Profile/profileaddress';
 import ProfileHelp from '../pages/Profile/profilehelp';
