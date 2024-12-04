@@ -8,7 +8,6 @@ export default function ProfileHelp(){
 
   return (
     <Styles.Container>
-      <Styles.HeaderUser>Ajuda</Styles.HeaderUser>
       <Styles.Label>Busca</Styles.Label>
 	  <Styles.Input />
     </Styles.Container>
