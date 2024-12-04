@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BackHandler } from 'react-native';
 import Styles from './styles';
 import Icons from '../../assets/icons';
 import CustomSwitch from '../../components/Switch';
@@ -8,6 +9,14 @@ export default function Profile() {
 	const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
 	const toggleSwitch = () => setIsNotificationsEnabled((prev) => !prev);
 	const navigation = useNavigation()
+	const handleExit = () => {
+		navigation.reset({
+			index: 0,
+			routes: [{ name: 'HomeStack' }],
+		});
+		BackHandler.exitApp();
+		return true;
+	};
 
   return (
 	<Styles.Container>
@@ -58,7 +67,7 @@ export default function Profile() {
 			<Styles.NotificationText>Notificações</Styles.NotificationText>
 			<CustomSwitch value={isNotificationsEnabled} onValueChange={toggleSwitch}/>
     	</Styles.NotificationSwitch>
-		<Styles.LeaveButton>
+		<Styles.LeaveButton onPress={handleExit}>
 			<Styles.LeaveButtonText>Sair do aplicativo</Styles.LeaveButtonText>
 		</Styles.LeaveButton>
 	</Styles.MenuContainer>
