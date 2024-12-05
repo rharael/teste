@@ -35,12 +35,6 @@ const LoginScreen = () => {
                 onChangeText={setPassword}
             />
 
-            <RememberMeContainer>
-                value={rememberMe}
-                onValueChange={setRememberMe}
-                <Text>Lembrar senha</Text>
-            </RememberMeContainer>
-
             <LoginButton onPress={handleLogin}>
                 <LoginButtonText>Entrar</LoginButtonText>
             </LoginButton>

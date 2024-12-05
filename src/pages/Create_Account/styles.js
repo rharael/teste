@@ -34,11 +34,12 @@ export const Input = styled.TextInput`
   height: 56px;
   padding: 20px;
   background-color: #EEF0F5;
+  border-radius: 8px;
 `;
 
 export const LoginButton = styled.TouchableOpacity`
   background-color: #FE724C;
-  border-radius: 8px;
+  border-radius: 12px;
   justify-content: center;
   align-items: center;
 `;

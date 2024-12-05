@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Container, Image, ItemProduct, Content, Title, Price, Cupom, TitleCupom, TextInput,
-       SubTotalPrice, Discount, Total, TextSub, PriceSub, BtnAdd, TextDisc, PriceDisc, Line, TextTotal, PriceTotal} from './styles'
+       SubTotalPrice, Discount, Total, TextSub, PriceSub, BtnAdd, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
 import Icons from '../../assets/icons';
 
 
@@ -24,7 +24,10 @@ function Cart (){
             </ItemProduct>
             <Cupom>
                 <TitleCupom>Você Possui algum CUPOM?</TitleCupom>
-                <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom} />
+                <BtnCupom>
+                    <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom}  />
+                    <Icons.CheckFill />
+                </BtnCupom>
             </Cupom>
             <SubTotalPrice>
                 <TextSub>Subtotal</TextSub>
@@ -36,9 +39,13 @@ function Cart (){
             </Discount>
             <Line></Line>
             <Total> 
-                <TextTotal>Desconto</TextTotal>
-                <PriceTotal> - </PriceTotal>
+                <TextTotal>Total</TextTotal>
+                <PriceTotal>R$13.998,00</PriceTotal>
             </Total>
+            <PaymentBtn>
+                <Icons.CardPayment />
+                <TextBt> Pagamento</TextBt>
+            </PaymentBtn>
         </Container>
     );
 }

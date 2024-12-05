@@ -22,8 +22,7 @@ export default function App(){
   }
 
   return(
-
-      <Cart />
+    <Cart />
       // <NavigationContainer>
       //   <Routes/>
       // </NavigationContainer>
