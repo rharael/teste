@@ -261,6 +261,22 @@ const CartAdd = ({ width = 22, height = 22, color = '#FFFFFF' }) => (
 	</Svg>
 );
 
+const CardPayment = ({ width = 24, height = 24, color = '#FFFFFF' }) => (
+	<Svg width={width} height={height} viewBox="0 0 22 22" fill="none">
+		<Path
+		d="M2 12C2 8.229 2 6.343 3.172 5.172C4.344 4.001 6.229 4 10 4H14C17.771 4 19.657 4 20.828 5.172C21.999 6.344 22 8.229 22 12C22 15.771 22 17.657 20.828 18.828C19.656 19.999 17.771 20 14 20H10C6.229 20 4.343 20 3.172 18.828C2.001 17.656 2 15.771 2 12Z"
+		stroke={color}
+		strokeWidth={1.5}
+		/>
+		<Path
+		d="M10 16H6M14 16H12.5M2 10H22"
+		stroke={color}
+		strokeWidth={1.5}
+		strokeLinecap="round"
+		/>
+	</Svg>
+);
+
 // profile page icons
 const UserProfile = ({ width = 16, height = 17, color = '#1E1E1E' }) => (
 	<Svg width={width} height={height} viewBox="0 0 15 16" fill="none">
@@ -309,22 +325,22 @@ const Arrow = ({ width = 18, height = 32, color = '#FE724C' }) => (
 );
 
 const BackArrow = ({ width = 20, height = 16, color = '#4B4B4B' }) => (
-<Svg width={width} height={height} viewBox="0 0 20 16" fill="none">
-<Path
-  d="M19 8.00002H1.5"
-  stroke={color}
-  strokeWidth={2}
-  strokeLinecap="round"
-  strokeLinejoin="round"
-/>
-<Path
-  d="M8 15L1 8L8 1"
-	stroke={color}
-  strokeWidth={2}
-  strokeLinecap="round"
-  strokeLinejoin="round"
-/>
-</Svg>
+	<Svg width={width} height={height} viewBox="0 0 20 16" fill="none">
+		<Path
+		d="M19 8.00002H1.5"
+		stroke={color}
+		strokeWidth={2}
+		strokeLinecap="round"
+		strokeLinejoin="round"
+		/>
+		<Path
+		d="M8 15L1 8L8 1"
+		stroke={color}
+		strokeWidth={2}
+		strokeLinecap="round"
+		strokeLinejoin="round"
+		/>
+	</Svg>
 );
 
 const Calendar = ({ width = 14, height = 14, color = '#FE724C' }) => (
@@ -394,9 +410,9 @@ const Icons = {
 	CarOutline,
 	CatPhone, CatBed, CatToy, CatGames, CatLaptops, ShopCart, Search, Star,
 	HomeIcon, Favorite, Cart, UserHome,
-	Share, Heart, CartAdd, Back, Close, Plus, Minus, Plusfill, Minusfill,
+	Share, Heart, CartAdd, Back, Close, Plus, Minus, Plusfill, Minusfill, CardPayment,
 	UserProfile, AddressPin, Help, Arrow, BackArrow,
-	Calendar, Mail, Phone, Save, Edit,
+	Calendar, Mail, Phone, Save, Edit, 
   };
   
 export default Icons;

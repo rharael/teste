@@ -5,7 +5,7 @@ import { Animated } from 'react-native';
 
 export const SwitchBase = ({ backgroundColor }) => (
 	<StyledBase>
-		<Svg width="40" height="22" viewBox="0 0 39 22">
+		<Svg width="40" height="22" viewBox="0 0 40 22">
 			<Rect
 			  x="0"
 			  y="0"
