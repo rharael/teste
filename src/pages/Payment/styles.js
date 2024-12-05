@@ -42,6 +42,7 @@ const Payment = styled.View`
 const PaymentContainer = styled.View`
   flex-direction: row;
   height: 60px;
+  margin-top: 20px;
 `;
 
 const PaymentType = styled.View`
@@ -56,6 +57,7 @@ const PaymentType = styled.View`
 const PaymentInformation = styled.View`
   height: 100%;
   justify-content: space-between;
+  padding: 2px 11px;
 `;
 
 const PaymentInformationTitle = styled.Text`
@@ -82,6 +84,7 @@ const PaymentInformationRadio = styled.TouchableOpacity`
 
 const LineDiv = styled.View`
   border: 1px solid #E3E3E3;
+  margin: 20px 0 0;
 `;
 
 const AddCardButton = styled.TouchableOpacity`
@@ -93,6 +96,7 @@ const AddCardButton = styled.TouchableOpacity`
   width: 100%;
   border: 1px solid #7C7C7C;
   border-radius: 12px;
+  margin: 47px 0 15px;
 `;
 
 const AddCardButtonIcon = styled(Icons.Plus)`
@@ -109,6 +113,7 @@ const AddCardButtonText = styled.Text`
 const PurchaseValuesContainer = styled.View`
   height: 122px;
   justify-content: space-between;
+  margin: 22px 0;
 `;
 
 const PurchaseValuesContent = styled.View`
@@ -288,7 +293,7 @@ const Button = styled.TouchableOpacity`
   background-color: #FE724C;
   justify-content: center;
   align-items: center;
-  margin: 33px 0 28px;
+  margin: 32px 0 28px;
 `;
 
 const ButtonText = styled.Text`

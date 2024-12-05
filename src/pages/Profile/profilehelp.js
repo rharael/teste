@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
+import { Button } from "react-native";
 import Styles from "./styles";
+import { UserContext } from "../../utils/context/UserContext";
 
-export default function ProfileHelp(){
+export default function ProfileHelp({ navigation }){
+	const { logout } = useContext(UserContext);
+	const handleLogout = () => {
+		logout();
+		navigation.replace("Login");
+	};
 
-  return (
-    <Styles.Container>
-      <Styles.Label>Busca</Styles.Label>
-	  <Styles.Input />
-    </Styles.Container>
-  );
-};
+	return (
+		<Styles.Container>
+			<Styles.Label>Busca</Styles.Label>
+			<Styles.Input />
+			<Button title="Logout" onPress={handleLogout} />
+		</Styles.Container>
+	);
+	};
