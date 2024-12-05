@@ -4,6 +4,8 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  TouchableOpacity,
+  Text,
 } from 'react-native';
 import {
   Container,
@@ -18,8 +20,8 @@ import {
   LoginButtonText,
   FooterText,
   CreateAccountText,
+  CustomCheckbox
 } from './styles';
-import CheckBox from '@react-native-community/checkbox';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -48,6 +50,8 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres.');
       return;
     }
+
+    Alert.alert('Sucesso', 'Login realizado com sucesso!');
   };
 
   return (
@@ -80,10 +84,12 @@ const LoginScreen = ({ navigation }) => {
           />
 
           <RememberMeContainer>
-            <CheckBox
-              value={rememberMe}
-              onValueChange={setRememberMe}
-            />
+            <TouchableOpacity
+              style={[CustomCheckbox, rememberMe && { backgroundColor: '#fe724c' }]}
+              onPress={() => setRememberMe(!rememberMe)}
+            >
+              {rememberMe && <Text style={{ color: '#fff', fontWeight: 'bold' }}>✔</Text>}
+            </TouchableOpacity>
             <RememberMeText>Lembrar senha</RememberMeText>
           </RememberMeContainer>
 
