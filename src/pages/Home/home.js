@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Keyboard, FlatList } from 'react-native';
 import Styles from './styles';
-import ProductCard from './ProductCard';
+import ProductCard from './productcard';
 import Api from '../../services/Api';
 import { ActivityIndicator } from 'react-native';
 
