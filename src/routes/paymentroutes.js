@@ -12,6 +12,14 @@ export default function PaymentStack(){
   return(
     <Stack.Navigator>
       <Stack.Screen
+        name='Cart'
+        component={Cart}
+        options={{
+          headerShown: false
+        }}
+      />
+
+      <Stack.Screen
         name='Payment'
         component={Payment}
         options={{
@@ -35,13 +43,6 @@ export default function PaymentStack(){
         }}
       />
 
-      <Stack.Screen
-        name='Home'
-        component={Home}
-        options={{
-          headerShown: false
-        }}
-      />
     </Stack.Navigator>
   );
 }

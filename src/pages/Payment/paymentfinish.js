@@ -36,7 +36,7 @@ export default function PaymentFinish({ navigation }){
 
       <Styles.Footer>
         <Styles.Button onPress={() => 
-          navigation.reset({index: 0, routes:[{name: 'Home'}]})}
+          navigation.reset({index: 0, routes:[{name: 'HomeStack'}]})}
         >
           <Styles.ButtonText>Continuar na loja</Styles.ButtonText>
         </Styles.Button>
