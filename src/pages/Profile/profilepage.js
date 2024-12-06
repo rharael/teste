@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { BackHandler } from 'react-native';
+import React, { useState, useContext } from 'react';
 import Styles from './styles';
 import Icons from '../../assets/icons';
 import CustomSwitch from '../../components/Switch';
@@ -10,13 +9,13 @@ export default function Profile() {
 	const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
 	const toggleSwitch = () => setIsNotificationsEnabled((prev) => !prev);
 	const navigation = useNavigation()
+	const { logout } = useContext(UserContext);
 	const handleExit = () => {
+		logout();
 		navigation.reset({
 			index: 0,
-			routes: [{ name: 'HomeStack' }],
+			routes: [{ name: "Login" }],
 		});
-		BackHandler.exitApp();
-		return true;
 	};
 	const { userData } = useContext(UserContext)
 

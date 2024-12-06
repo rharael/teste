@@ -41,7 +41,7 @@ export const UserProvider = ({ children }) => {
 	const updateUserData = async (updatedData) => {
 		try {
 			setUserData(updatedData);
-			await AsyncStorage.setItem(`user_${data.id}`, JSON.stringify(updatedData));
+			await AsyncStorage.setItem(`user_${updatedData.id}`, JSON.stringify(updatedData));
 		} catch (error) {
 			console.error("Erro ao salvar dados:", error);
 			}

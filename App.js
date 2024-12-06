@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { UserProvider } from './src/utils/context/UserContext';
-import { CardProvider } from './src/utils/context/CardContext';
 import AppLoading from 'expo-app-loading';
-import Routes from './src/routes/index';
+import AuthRoutes from './src/routes/AuthRoutes';
 import { loadFonts } from './src/assets/fonts/fonts';
-import PaymentStack from './src/routes/paymentroutes';
 
 
 export default function App(){
@@ -26,11 +24,9 @@ export default function App(){
 
   return(
 	<UserProvider>
-    <CardProvider>
-      <NavigationContainer>
-        <PaymentStack/>
+      <NavigationContainer> 
+        <AuthRoutes/>
       </NavigationContainer>
-    </CardProvider>
 	</UserProvider>
   );
 };

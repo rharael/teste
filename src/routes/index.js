@@ -5,7 +5,7 @@ import Icons from '../assets/icons';
 import Favorite from '../pages/Favorites/favorites';
 import ProfileStack from './profile';
 import Cart from '../pages/Cart/cart';
-import HomeStack from './homeroutes';
+import HomeStack from './homeRoutes';
 
 const Tab = createBottomTabNavigator();
 

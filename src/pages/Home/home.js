@@ -1,10 +1,9 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Keyboard, FlatList } from 'react-native';
 import Styles from './styles';
-import ProductCard from './productcard';
+import ProductCard from './ProductCard';
 import Api from '../../services/Api';
 import { ActivityIndicator } from 'react-native';
-import { UserContext } from '../../utils/context/UserContext';
 
 export default function Home(){
   const [columns, setColumns] = useState(2);
@@ -14,11 +13,9 @@ export default function Home(){
   const [searchProduct, setSearchProduct] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { setActiveUser } = useContext(UserContext);
   useEffect( () => {
     fetchCategories();
     fetchProducts();
-	setActiveUser(3)
   }, []);
 
   const fetchCategories = async () => {

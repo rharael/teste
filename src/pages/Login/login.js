@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Alert,
   KeyboardAvoidingView,
@@ -22,13 +22,20 @@ import {
   CreateAccountText,
   CustomCheckbox
 } from './styles';
+import { UserContext } from '../../utils/context/UserContext';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
+  const { setActiveUser } = useContext(UserContext);
   const handleLogin = () => {
+
+	const userId = username;
+	setActiveUser(userId);
+	navigation.navigate("AppRoutes");
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!username) {
