@@ -5,13 +5,13 @@ const Container = styled.View`
   flex: 1;
   background-Color: #fff;
   width: 393px;
-  margin: 20px auto 0px;
+  margin: 0 auto;
 `;
 
 const Header = styled.View`
   flex-direction: row;
   height: 40px;
-  margin: 30px auto 0px;
+  margin: 50px auto 0px;
   align-items: center;
   width: 353px;
 `;
@@ -32,6 +32,115 @@ const HeaderText = styled.Text`
 `;
 
 const Main = styled.ScrollView`
+  width: 353px;
+  margin: 0 auto;
+`;
+
+const Payment = styled.View`
+`;
+
+const PaymentContainer = styled.View`
+  flex-direction: row;
+  height: 60px;
+  margin-top: 20px;
+`;
+
+const PaymentType = styled.View`
+  height: 100%;
+  width: 60px;
+  background-color: #F0F1F2;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PaymentInformation = styled.View`
+  height: 100%;
+  justify-content: space-between;
+  padding: 2px 11px;
+`;
+
+const PaymentInformationTitle = styled.Text`
+  font-size: 15px;
+  font-family: 'Urbanist-Regular';
+  color: #0F100D;
+`;
+
+const PaymentInformationText = styled.Text`
+  font-size: 15px;
+  font-family: 'Urbanist-Medium';
+  color: #7C7C7C;
+`;
+
+const PaymentInformationRadio = styled.TouchableOpacity`
+  border: 1px solid #E3E3E3;
+  border-radius: 12px;
+  position: absolute;
+  right: 0;
+  top: 18.5;
+  width: 23px;
+  height: 23px;
+`;
+
+const LineDiv = styled.View`
+  border: 1px solid #E3E3E3;
+  margin: 20px 0 0;
+`;
+
+const AddCardButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #7C7C7C;
+  border-radius: 12px;
+  margin: 47px 0 15px;
+`;
+
+const AddCardButtonIcon = styled(Icons.Plus)`
+`;
+
+const AddCardButtonText = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Medium';
+  color: #7C7C7C;
+  width: 145px;
+  height: 17px;
+`;
+
+const PurchaseValuesContainer = styled.View`
+  height: 122px;
+  justify-content: space-between;
+  margin: 22px 0;
+`;
+
+const PurchaseValuesContent = styled.View`
+  flex-direction: row;
+  height: 17px;
+`;
+
+const PurchaseValuesTitle = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Medium';
+  color: #7C7C7C;
+  width: 50%;
+`;
+
+const PurchaseValue = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
+  color: #2A2A2A;
+  text-align: right;
+  width: 50%;
+`;
+
+const LineDivPurchase = styled.View`
+  border: 1px dashed #7C7C7C;
+`;
+
+const Footer = styled.View`
   width: 353px;
   margin: 0 auto;
 `;
@@ -177,24 +286,60 @@ const SetPaymentText = styled.Text`
   color: #7C7C7C;
 `;
 
-const SaveCard = styled.TouchableOpacity`
+const Button = styled.TouchableOpacity`
   height: 56px;
   width: 100%;
   border-radius: 12px;
   background-color: #FE724C;
   justify-content: center;
   align-items: center;
-  margin: 33px 0 28px;
+  margin: 32px 0 28px;
 `;
 
-const SaveCardText = styled.Text`
+const ButtonText = styled.Text`
   font-size: 16px;
   font-family: 'Urbanist-SemiBold';
   color: #FFF;
 `;
 
+const PaymentFinishImage = styled.Image`
+  margin-top: 48px;
+`;
+
+const PaymentFinishText = styled.Text`
+  font-size: 16px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+  text-align: center;
+  margin: 17px 0 30px;
+`;
+
+const IdBuy = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Medium';
+  color: #7C7C7C;
+  text-align: center;
+  margin: 9px 0 31px;
+`;
+
+const MyPurchasesButton = styled.TouchableOpacity`
+  width: 243px;
+  height: 40px;
+  background-color: #3A6BEB;
+  border-radius: 8px;
+  justify-content: center;
+  margin: 0 auto 124px;
+`;
+
+const MyPurchasesText = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
+  color: #FFF;
+  text-align: center;
+`;
+
 const Styles = {
-  Container, Header, BackButton, BackIcon, HeaderText, Main, CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, SetPaymentTitle, SetPaymentText, SaveCard, SaveCardText,
+  Container, Header, BackButton, BackIcon, HeaderText, Main, Payment, PaymentContainer, PaymentType, PaymentInformation, PaymentInformationTitle, PaymentInformationText, PaymentInformationRadio, LineDiv, AddCardButton, AddCardButtonIcon, AddCardButtonText, PurchaseValuesContainer, PurchaseValuesContent, PurchaseValuesTitle, PurchaseValue, LineDivPurchase, Footer,  CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, SetPaymentTitle, SetPaymentText, Button, ButtonText, PaymentFinishImage, PaymentFinishText, IdBuy, MyPurchasesButton, MyPurchasesText,
 };
 
 export default Styles;

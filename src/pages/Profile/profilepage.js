@@ -1,54 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { BackHandler } from 'react-native';
+import React, { useState, useContext } from 'react';
 import Styles from './styles';
 import Icons from '../../assets/icons';
 import CustomSwitch from '../../components/Switch';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Api from '../../services/Api';
+import { UserContext } from '../../utils/context/UserContext';
 
 export default function Profile() {
 	const [isNotificationsEnabled, setIsNotificationsEnabled] = useState(false);
 	const toggleSwitch = () => setIsNotificationsEnabled((prev) => !prev);
 	const navigation = useNavigation()
+	const { logout } = useContext(UserContext);
 	const handleExit = () => {
+		logout();
 		navigation.reset({
 			index: 0,
-			routes: [{ name: 'HomeStack' }],
+			routes: [{ name: "Login" }],
 		});
-		BackHandler.exitApp();
-		return true;
 	};
-	const [userData, setUserData] = useState({
-		name: "",
-		birthDate: "",
-		email: "",
-		phone: "",
-	  });
-	const loadData = async () => {
-		try {
-		  const storedData = await AsyncStorage.getItem("userData");
-		  if (storedData) {
-			setUserData(JSON.parse(storedData));
-		  } else {
-			const response = await Api.get("users/1");
-			const fetchedData = {
-			  name: `${response.data.name.firstname} ${response.data.name.lastname}`,
-			  birthDate: "08/08/2000",
-			  email: response.data.email,
-			  phone: response.data.phone,
-			};
-			setUserData(fetchedData);
-			await AsyncStorage.setItem("userData", JSON.stringify(fetchedData));
-		  }
-		} catch (error) {
-		  Alert.alert("Erro", "Não foi possível carregar os dados.");
-		}
-	  };
-
-	  useEffect(() => {
-		loadData();
-	  }, []);
+	const { userData } = useContext(UserContext)
 
   return (
 	<Styles.Container>

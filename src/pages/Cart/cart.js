@@ -1,15 +1,25 @@
 
-import React, { useState } from 'react';
-import { Container, Image, ItemProduct, Content, Title, Price, Cupom, TitleCupom, TextInput,
-       SubTotalPrice, Discount, Total, TextSub, PriceSub, BtnAdd, TextDisc, PriceDisc, Line, TextTotal, PriceTotal} from './styles'
+import React, { useState, Flatlist, useContext } from 'react';
+import { Container, Cupom, TitleCupom, TextInput,
+       SubTotalPrice, Discount, Total, TextSub, PriceSub, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
 import Icons from '../../assets/icons';
-
+import { useNavigation } from '@react-navigation/native';
+import ItemProducts from './itemProduct';
+import { UserContext } from '../../utils/context/UserContext';
 
 function Cart (){
     const [cupom, setCupom] = useState('');
+    const navigation = useNavigation();
+    const {cartProduct} = useContext (UserContext);
     return (
         <Container>
-            <ItemProduct>
+           {/* <Flatlist 
+                data = {cartProduct}
+                keyExtractor = {(item) => `${item.title} - ${item.price}`}
+                renderItem = {({item}) => <ItemProducts data = {item} />
+                }
+            />  */}
+            {/* <ItemProduct>
                 <Image
                     source={require('../../assets/images/iphone.png')}
                 />
@@ -21,10 +31,13 @@ function Cart (){
                         <Icons.Plusfill />
                     </BtnAdd>
                 </Content>
-            </ItemProduct>
+            </ItemProduct> */}
             <Cupom>
                 <TitleCupom>Você Possui algum CUPOM?</TitleCupom>
-                <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom} />
+                <BtnCupom>
+                    <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom}  />
+                    <Icons.CheckFill />
+                </BtnCupom>
             </Cupom>
             <SubTotalPrice>
                 <TextSub>Subtotal</TextSub>
@@ -36,9 +49,13 @@ function Cart (){
             </Discount>
             <Line></Line>
             <Total> 
-                <TextTotal>Desconto</TextTotal>
-                <PriceTotal> - </PriceTotal>
+                <TextTotal>Total</TextTotal>
+                <PriceTotal>R$13.998,00</PriceTotal>
             </Total>
+            <PaymentBtn>
+                <Icons.CardPayment />
+                <TextBt> Pagamento</TextBt>
+            </PaymentBtn>
         </Container>
     );
 }

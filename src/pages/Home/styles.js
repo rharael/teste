@@ -4,7 +4,7 @@ import Icons from '../../assets/icons/index';
 const Container = styled.View`
   flex: 1;
   background-Color: #fff;
-  width: 393px;
+  width: 100%;
   margin: 20px auto 0px;
 `;
 
