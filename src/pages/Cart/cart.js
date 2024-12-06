@@ -3,13 +3,10 @@ import React, { useState, Flatlist, useContext } from 'react';
 import { Container, Cupom, TitleCupom, TextInput,
        SubTotalPrice, Discount, Total, TextSub, PriceSub, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
 import Icons from '../../assets/icons';
-import { useNavigation } from '@react-navigation/native';
-import ItemProducts from './itemProduct';
 import { UserContext } from '../../utils/context/UserContext';
 
-function Cart (){
+function Cart ({navigation}){
     const [cupom, setCupom] = useState('');
-    const navigation = useNavigation();
     const {cartProduct} = useContext (UserContext);
     return (
         <Container>
@@ -52,7 +49,7 @@ function Cart (){
                 <TextTotal>Total</TextTotal>
                 <PriceTotal>R$13.998,00</PriceTotal>
             </Total>
-            <PaymentBtn>
+            <PaymentBtn onPress={() => navigation.navigate("Payment")}>
                 <Icons.CardPayment />
                 <TextBt> Pagamento</TextBt>
             </PaymentBtn>

@@ -4,7 +4,6 @@ import { UserProvider } from './src/utils/context/UserContext';
 import AppLoading from 'expo-app-loading';
 import AuthRoutes from './src/routes/AuthRoutes';
 import { loadFonts } from './src/assets/fonts/fonts';
-import AppLoading from 'expo-app-loading';
 import Cart from './src/pages/Cart/cart';
 
 
