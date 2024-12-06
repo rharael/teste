@@ -1,13 +1,7 @@
 
-<<<<<<< HEAD
 import React, { useState, Flatlist, useContext } from 'react';
 import { Container, Cupom, TitleCupom, TextInput,
        SubTotalPrice, Discount, Total, TextSub, PriceSub, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
-=======
-import React, { useState } from 'react';
-import { Container, Image, ItemProduct, Content, Title, Price, Cupom, TitleCupom, TextInput,
-       SubTotalPrice, Discount, Total, TextSub, PriceSub, BtnAdd, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
->>>>>>> 898fdd9f4bf38a499053a7d83faff86a04e65330
 import Icons from '../../assets/icons';
 import { useNavigation } from '@react-navigation/native';
 import ItemProducts from './itemProduct';
