@@ -36,7 +36,7 @@ export const Subtitle = styled.Text`
 export const Input = styled.TextInput`
   width: 100%;
   height: 56px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   padding: 20px;
   background-color: #eef0f5;
   border-radius: 8px;
@@ -49,6 +49,7 @@ export const LoginButton = styled.TouchableOpacity`
   align-items: center;
   width: 100%;
   height: 56px;
+  margin-top: 23px;
   margin-bottom: 163px;
 `;
 
