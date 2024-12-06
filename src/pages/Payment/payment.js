@@ -3,11 +3,10 @@ import { FlatList } from 'react-native';
 import Styles from './styles';
 import Images from '../../assets/images/images';
 import PaymentTypes from './paymenttypes';
-import {useNavigation} from '@react-navigation/native';
-import { CardContext } from '../../utils/context/CardContext';
+import { UserContext } from '../../utils/context/UserContext';
 
 export default function Payment({ navigation }){
-  const { cards } = useContext(CardContext);
+  const { cards } = useContext(UserContext);
 
   return(
     <Styles.Container>
@@ -18,7 +17,7 @@ export default function Payment({ navigation }){
        <Styles.HeaderText>Pagamento</Styles.HeaderText>
       </Styles.Header>
 
-      <Styles.Main>
+      <Styles.Main vertical showsVerticalScrollIndicator={false}>
 
         <FlatList
           data={cards}
@@ -66,7 +65,9 @@ export default function Payment({ navigation }){
           </Styles.PurchaseValuesContent>
         </Styles.PurchaseValuesContainer>
 
-        <Styles.Button>
+        <Styles.Button onPress={() => 
+          navigation.reset({index: 0, routes:[{name: 'PaymentFinish'}]})}
+        >
           <Styles.ButtonText>Confirmar compra</Styles.ButtonText>
         </Styles.Button>
       </Styles.Footer>

@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import Styles from './styles';
 import Images from '../../assets/images/images';
-import { CardContext } from '../../utils/context/CardContext';
 import { Alert } from 'react-native';
+import { UserContext } from '../../utils/context/UserContext';
 
 export default function NewCard({ navigation }){
-  const { cards, setCards} = useContext(CardContext);
+  const { cards, setCards } = useContext(UserContext);
 
   const [newCard, setNewCard] = useState({
     name: '',
@@ -82,6 +82,11 @@ export default function NewCard({ navigation }){
       return false;
     }
 
+    if((parseInt(month) > 12 ) || (parseInt(month) < 1)){
+      Alert.alert('Erro', 'Mês do vencimento inválido.');
+      return false;
+    }
+
     if(cvv.length !== 3){
       Alert.alert('Erro', 'O CVV deve ter 3 dígitos');
       return false;
@@ -108,7 +113,7 @@ export default function NewCard({ navigation }){
         <Styles.HeaderText>Novo Cartão</Styles.HeaderText>
       </Styles.Header>
 
-      <Styles.Main  vertical showsVerticalScrollIndicator={false}>
+      <Styles.Main vertical showsVerticalScrollIndicator={false}>
         <Styles.CardPreview>
           <Styles.CardPreviewHeader>
             <Images.ChipCard/>

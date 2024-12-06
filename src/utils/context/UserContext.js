@@ -8,6 +8,8 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
 	const [userData, setUserData] = useState(null);
 	const [activeUserId, setActiveUserId] = useState(null);
+	const [cards, setCards] = useState([]);
+	const [buys, setBuys] = useState([]);
 
 	const loadUserData = async (id) => {
 		try {
@@ -85,7 +87,7 @@ export const UserProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<UserContext.Provider value={{ userData, updateUserData, setActiveUser, activeUserId, logout}}>
+		<UserContext.Provider value={{ userData, updateUserData, setActiveUser, activeUserId, logout, cards, setCards}}>
 			{children}
 		</UserContext.Provider>
 	);

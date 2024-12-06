@@ -5,13 +5,13 @@ const Container = styled.View`
   flex: 1;
   background-Color: #fff;
   width: 393px;
-  margin: 20px auto 0px;
+  margin: 0 auto;
 `;
 
 const Header = styled.View`
   flex-direction: row;
   height: 40px;
-  margin: 30px auto 0px;
+  margin: 50px auto 0px;
   align-items: center;
   width: 353px;
 `;
@@ -302,8 +302,44 @@ const ButtonText = styled.Text`
   color: #FFF;
 `;
 
+const PaymentFinishImage = styled.Image`
+  margin-top: 48px;
+`;
+
+const PaymentFinishText = styled.Text`
+  font-size: 16px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+  text-align: center;
+  margin: 17px 0 30px;
+`;
+
+const IdBuy = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-Medium';
+  color: #7C7C7C;
+  text-align: center;
+  margin: 9px 0 31px;
+`;
+
+const MyPurchasesButton = styled.TouchableOpacity`
+  width: 243px;
+  height: 40px;
+  background-color: #3A6BEB;
+  border-radius: 8px;
+  justify-content: center;
+  margin: 0 auto 124px;
+`;
+
+const MyPurchasesText = styled.Text`
+  font-size: 14px;
+  font-family: 'Urbanist-SemiBold';
+  color: #FFF;
+  text-align: center;
+`;
+
 const Styles = {
-  Container, Header, BackButton, BackIcon, HeaderText, Main, Payment, PaymentContainer, PaymentType, PaymentInformation, PaymentInformationTitle, PaymentInformationText, PaymentInformationRadio, LineDiv, AddCardButton, AddCardButtonIcon, AddCardButtonText, PurchaseValuesContainer, PurchaseValuesContent, PurchaseValuesTitle, PurchaseValue, LineDivPurchase, Footer,  CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, SetPaymentTitle, SetPaymentText, Button, ButtonText,
+  Container, Header, BackButton, BackIcon, HeaderText, Main, Payment, PaymentContainer, PaymentType, PaymentInformation, PaymentInformationTitle, PaymentInformationText, PaymentInformationRadio, LineDiv, AddCardButton, AddCardButtonIcon, AddCardButtonText, PurchaseValuesContainer, PurchaseValuesContent, PurchaseValuesTitle, PurchaseValue, LineDivPurchase, Footer,  CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, SetPaymentTitle, SetPaymentText, Button, ButtonText, PaymentFinishImage, PaymentFinishText, IdBuy, MyPurchasesButton, MyPurchasesText,
 };
 
 export default Styles;
