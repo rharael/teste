@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Alert,
   KeyboardAvoidingView,
@@ -22,15 +22,29 @@ import {
   CreateAccountText,
   CustomCheckbox
 } from './styles';
+import { UserContext } from '../../utils/context/UserContext';
 
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
+  const { setActiveUser } = useContext(UserContext);
   const handleLogin = () => {
+
+	const userId = username;
+	setActiveUser(userId);
+	navigation.navigate("AppRoutes");
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!username) {
       Alert.alert('Erro', 'Por favor, insira seu email.');
+      return;
+    }
+
+    if (!emailRegex.test(username)) {
+      Alert.alert('Erro', 'Por favor, insira um email válido.');
       return;
     }
 
@@ -43,6 +57,8 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres.');
       return;
     }
+
+    Alert.alert('Sucesso', 'Login realizado com sucesso!');
   };
 
   return (
@@ -62,30 +78,26 @@ const LoginScreen = ({ navigation }) => {
 
           <Input
             value={username}
-            placeholder="Nome de Usuário"
+            placeholder="Email"
             onChangeText={setUsername}
             autoCapitalize="none"
           />
 
           <Input
             value={password}
-            placeholder="Senha"
+            placeholder="Digite sua senha"
             secureTextEntry
             onChangeText={setPassword}
           />
 
           <RememberMeContainer>
             <TouchableOpacity
+              style={[CustomCheckbox, rememberMe && { backgroundColor: '#fe724c' }]}
               onPress={() => setRememberMe(!rememberMe)}
-              style={{ flexDirection: 'row', alignItems: 'center' }}
             >
-              <CustomCheckbox selected={rememberMe}>
-                {rememberMe && (
-                  <Text style={{ color: '#fff', fontWeight: 'bold' }}>✔</Text>
-                )}
-              </CustomCheckbox>
-              <RememberMeText>Lembrar senha</RememberMeText>
+              {rememberMe && <Text style={{ color: '#fff', fontWeight: 'bold' }}>✔</Text>}
             </TouchableOpacity>
+            <RememberMeText>Lembrar senha</RememberMeText>
           </RememberMeContainer>
 
           <LoginButton onPress={handleLogin}>
