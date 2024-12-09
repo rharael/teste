@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { UserProvider } from './src/utils/context/UserContext';
-import AppLoading from 'expo-app-loading';
-import AuthRoutes from './src/routes/AuthRoutes';
-import { loadFonts } from './src/assets/fonts/fonts';
-import Cart from './src/pages/Cart/cart';
+import React, { useEffect, useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { UserProvider } from "./src/utils/context/UserContext";
+import AppLoading from "expo-app-loading";
+import AuthRoutes from "./src/routes/AuthRoutes";
+import { loadFonts } from "./src/assets/fonts/fonts";
+import { ProductsCartProvider } from "./src/utils/context/ProductsCartContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ProductsFavoriteProvider } from "./src/utils/context/ProductsFavoriteContext";
 
-
-export default function App(){
+export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,17 +18,21 @@ export default function App(){
   const load = async () => {
     await loadFonts();
     setFontsLoaded(true);
+  };
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
   }
 
-  if(!fontsLoaded){
-    return <AppLoading/>
-  }
-
-  return(
-	<UserProvider>
-      <NavigationContainer> 
-        <AuthRoutes/>
-      </NavigationContainer>
-	</UserProvider>
+  return (
+    <UserProvider>
+      <ProductsFavoriteProvider>
+        <ProductsCartProvider>
+          <NavigationContainer>
+            <AuthRoutes />
+          </NavigationContainer>
+        </ProductsCartProvider>
+      </ProductsFavoriteProvider>
+    </UserProvider>
   );
-};
+}
