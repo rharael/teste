@@ -77,6 +77,9 @@ const ShareIcon = styled(Icons.Share)`
 const FavoriteIcon = styled(Icons.Heart)`
 `;
 
+const FavoriteIconSelected = styled(Icons.HeartSelected)`
+`;
+
 const Description = styled.Text`
   font-size: 13px;
   font-family: 'Urbanist-Medium';
@@ -304,7 +307,7 @@ const GoToCartText = styled.Text`
 `;
 
 const Styles = {
-  Container, Header, BackButton, BackIcon, Product, ProductImageArea, ProductImage, ProductTitle, ProductHeader, IconsArea, IconButton, ShareIcon, FavoriteIcon, Description, ReadMore, ReviewContainer, Stars, Reviews, StarIcon, StarContent, ReviewValue, ReviewContent, DiscountPrice, ProductPrice, Actions, QuantityControl, QuantityButton, QuantityText, QuantityUp, QuantityDown, AddCartButtom, AddCartIcon, AddCartText, ModalContainer, ModalOpacity, CloseButton, CloseIcon, AddedCartTitle, AddedCartSubtitle, KeepShoppingButton, KeepShoppingText, GoToCartButton, GoToCartText
+  Container, Header, BackButton, BackIcon, Product, ProductImageArea, ProductImage, ProductTitle, ProductHeader, IconsArea, IconButton, ShareIcon, FavoriteIcon, FavoriteIconSelected, Description, ReadMore, ReviewContainer, Stars, Reviews, StarIcon, StarContent, ReviewValue, ReviewContent, DiscountPrice, ProductPrice, Actions, QuantityControl, QuantityButton, QuantityText, QuantityUp, QuantityDown, AddCartButtom, AddCartIcon, AddCartText, ModalContainer, ModalOpacity, CloseButton, CloseIcon, AddedCartTitle, AddedCartSubtitle, KeepShoppingButton, KeepShoppingText, GoToCartButton, GoToCartText
 }
 
 export default Styles;

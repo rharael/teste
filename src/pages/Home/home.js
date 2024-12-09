@@ -64,6 +64,11 @@ export default function Home({ navigation }){
     }
   };
 
+  const clearSearch = () => {
+    setSearchProduct('');
+    setFilterProducts(products);
+  }
+
   if(loading){
     return(
       <Styles.LoadingContainer>
@@ -92,12 +97,17 @@ export default function Home({ navigation }){
         
         <Styles.SearchProductWrapper>
           <Styles.SearchIcon/>
-            <Styles.SearchProduct 
+          <Styles.SearchProduct 
               placeholder='Buscar Produto'
               value={searchProduct}
               onChangeText={handleSearch}
               onSubmitEditing={Keyboard.dismiss}
-            />
+          />
+          {searchProduct.length > 0 && (
+            <Styles.ClearSearch onPress={clearSearch}>
+              <Styles.ClearSearchIcon/>
+            </Styles.ClearSearch>
+          )}
         </Styles.SearchProductWrapper>
       </Styles.Header>
 

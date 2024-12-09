@@ -67,6 +67,18 @@ const SearchProduct = styled.TextInput`
 const SearchIcon = styled(Icons.Search)`
 `;
 
+const ClearSearch = styled.TouchableOpacity`
+  background-color: #7C7C7C;
+  width: 17px;
+  height: 17px;
+  border-radius: 8.5px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ClearSearchIcon = styled(Icons.CloseSearch)`
+`;
+
 const Main = styled.ScrollView`
   width: 90%;
   margin: 0 auto;
@@ -132,7 +144,7 @@ const ProductItem = styled.TouchableOpacity`
 `;
 
 const ProductAreaImage = styled.View`
-  background-Color: #f5f5f5;
+  border: 1px solid #E3E3E3;
   height: 167px;
   width: 167px;
   padding: 30px;
@@ -214,7 +226,7 @@ const LoadingContainer = styled.View`
 `;
 
 const Styles = {
-  Container, Header, HeaderDiv, WelcomeDiv, WelcomeText, UserName, ShoppingCart, ShoppingCartImage, Main, SearchProductWrapper, SearchProduct, SearchIcon, SectionTitle, Categories, CategoryItem, CategoryImage, CategoryIcon, CategoryText, Products, ProductItem, ProductAreaImage, ProductImage, ProductName, ProductInformation, ProductPrice, ProductStars, ProductStarIcon, ProductStarValue, LineDiv, EmptyContainer, EmptyImage, EmptyTitle, EmptySubitle, LoadingContainer
+  Container, Header, HeaderDiv, WelcomeDiv, WelcomeText, UserName, ShoppingCart, ShoppingCartImage, Main, SearchProductWrapper, SearchProduct, SearchIcon, ClearSearch, ClearSearchIcon, SectionTitle, Categories, CategoryItem, CategoryImage, CategoryIcon, CategoryText, Products, ProductItem, ProductAreaImage, ProductImage, ProductName, ProductInformation, ProductPrice, ProductStars, ProductStarIcon, ProductStarValue, LineDiv, EmptyContainer, EmptyImage, EmptyTitle, EmptySubitle, LoadingContainer
 };
 
 export default Styles;

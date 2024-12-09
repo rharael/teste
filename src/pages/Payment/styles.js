@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import Icons from '../../assets/icons/index';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Container = styled.View`
   flex: 1;
@@ -73,13 +74,24 @@ const PaymentInformationText = styled.Text`
 `;
 
 const PaymentInformationRadio = styled.TouchableOpacity`
-  border: 1px solid #E3E3E3;
+  border-width: 1px;
   border-radius: 12px;
+  border-color: ${({ isSelected }) => (isSelected ? '#FE724C' : '#E3E3E3')};
   position: absolute;
   right: 0;
   top: 18.5;
   width: 23px;
   height: 23px;
+  background-color: ${({ isSelected }) => (isSelected ? '#FE724C' : 'transparent')};
+  justify-content: center;
+  align-items: center;
+`;
+
+const RadioCircle = styled.View`
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #FFF;
 `;
 
 const LineDiv = styled.View`
@@ -145,10 +157,13 @@ const Footer = styled.View`
   margin: 0 auto;
 `;
 
-const CardPreview = styled.View`
+const CardPreview = styled(LinearGradient).attrs(() => ({
+  colors: ['#2A2A2A', '#5A5A5A'],
+  start: { x: 0, y: 0 },
+  end: { x: 1, y: 1 }
+}))`
   width: 100%;
   height: 192px;
-  background-color: #2A2A2A;
   border-radius: 20px;
   padding: 25px;
   margin-top: 18px;
@@ -206,7 +221,7 @@ const CardPreviewValue = styled.Text`
 const LogoCardContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  width: 353px;
+  width: 100%;
   margin-top: 22px;
 `;
 
@@ -268,11 +283,17 @@ const SetPaymentWrapper = styled.View`
 `;
 
 const SetPaymentCheckbox = styled.TouchableOpacity`
-  border: 1px solid #E3E3E3;
+  border-width: 1px;
+  border-color: ${(props) => (props.selected ? '#FE724C' : '#E3E3E3')};
+  border-radius: 2px;
   background-color: ${(props) => (props.selected ? '#FE724C' : 'transparent')};
   width: 20px;
   height: 20px;
+  justify-content: center;
+  align-items: center;
 `; 
+
+const ConfirmCheckbox = styled(Icons.Confirm)``;
 
 const SetPaymentTitle = styled.Text`
   font-size: 14px;
@@ -339,7 +360,7 @@ const MyPurchasesText = styled.Text`
 `;
 
 const Styles = {
-  Container, Header, BackButton, BackIcon, HeaderText, Main, Payment, PaymentContainer, PaymentType, PaymentInformation, PaymentInformationTitle, PaymentInformationText, PaymentInformationRadio, LineDiv, AddCardButton, AddCardButtonIcon, AddCardButtonText, PurchaseValuesContainer, PurchaseValuesContent, PurchaseValuesTitle, PurchaseValue, LineDivPurchase, Footer,  CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, SetPaymentTitle, SetPaymentText, Button, ButtonText, PaymentFinishImage, PaymentFinishText, IdBuy, MyPurchasesButton, MyPurchasesText,
+  Container, Header, BackButton, BackIcon, HeaderText, Main, Payment, PaymentContainer, PaymentType, PaymentInformation, PaymentInformationTitle, PaymentInformationText, PaymentInformationRadio, RadioCircle, LineDiv, AddCardButton, AddCardButtonIcon, AddCardButtonText, PurchaseValuesContainer, PurchaseValuesContent, PurchaseValuesTitle, PurchaseValue, LineDivPurchase, Footer,  CardPreview, CardPreviewHeader, CardPreviewNumber, CardPreviewFooter, CardPreviewFooterDiv1, CardPreviewFooterDiv2, CardPreviewWrapper, CardPreviewTitle, CardPreviewName, CardPreviewValue, LogoCardContainer, LogoCardOption, InfomationCardContainer, InformationCardDiv, InformationCardTitle,InformationCardInput1, InformationCardInput2, InformationCardWrapper, SetPaymentWrapper, SetPaymentCheckbox, ConfirmCheckbox, SetPaymentTitle, SetPaymentText, Button, ButtonText, PaymentFinishImage, PaymentFinishText, IdBuy, MyPurchasesButton, MyPurchasesText,
 };
 
 export default Styles;

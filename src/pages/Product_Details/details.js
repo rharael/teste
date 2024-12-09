@@ -3,6 +3,7 @@ import { Modal, TouchableWithoutFeedback } from 'react-native';
 import Styles from './styles';
 import {useNavigation} from '@react-navigation/native';
 import { ProductsCartContext } from '../../utils/context/ProductsCartContext';
+import { ProductsFavoriteContext } from '../../utils/context/ProductsFavoriteContext';
 
 export default function Details({ route, nav }){
   const navigation = useNavigation();
@@ -12,11 +13,14 @@ export default function Details({ route, nav }){
   const [quantityProduct, setQuantityProduct] = useState(1);
   const { addProductCart } = useContext(ProductsCartContext);
   const [productCart, setProductCart] = useState({
+    id: product.id,
     image: product.image,
     name: product.title,
     price: product.price,
     quantity: '',
-  })
+  });
+  const { favoriteProducts, toggleFavorite } = useContext(ProductsFavoriteContext);
+  const isFavorited = favoriteProducts.some((item) => item.id === product.id);
 
   const handleIncrement = () => {
     setQuantityProduct((count) => count + 1);
@@ -28,7 +32,6 @@ export default function Details({ route, nav }){
 
   const handleProductCart = () => {
     setProductCart(productCart.quantity = quantityProduct);
-
     addProductCart(productCart);
   }
 
@@ -36,7 +39,7 @@ export default function Details({ route, nav }){
     <Styles.Container>
       <Styles.Header>
         <Styles.BackButton 
-        onPress={() => navigation.reset({index: 0, routes:[{name: 'Home'}]})}>
+        onPress={() => navigation.goBack()}>
           <Styles.BackIcon/>
         </Styles.BackButton>
       </Styles.Header>
@@ -53,8 +56,12 @@ export default function Details({ route, nav }){
             <Styles.IconButton>
               <Styles.ShareIcon/>
             </Styles.IconButton>
-            <Styles.IconButton>
-              <Styles.FavoriteIcon/>
+            <Styles.IconButton onPress={() => toggleFavorite(product)}>
+              {isFavorited ? (
+                <Styles.FavoriteIconSelected/>
+              ) : (
+                <Styles.FavoriteIcon/>
+              )}
             </Styles.IconButton>
           </Styles.IconsArea>
         </Styles.ProductHeader>

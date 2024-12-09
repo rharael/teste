@@ -1,27 +1,64 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { UserContext } from "./UserContext";
 
-export const ProductsFavoriteContext = createContext()
+export const ProductsFavoriteContext = createContext();
 
-export const ProductsFavoriteProvider = ({ children })=> {
-	const [favoriteProducts, setFavoriteProducts] = useState([]);
+export const ProductsFavoriteProvider = ({ children }) => {
+  const { activeUserId } = useContext(UserContext);
+  const [favoriteProducts, setFavoriteProducts] = useState([]);
+
+  const saveFavorites = async (updatedFavorites) => {
+    try {
+      setFavoriteProducts(updatedFavorites);
+      await AsyncStorage.setItem(
+        `userFavorites_${activeUserId}`,
+        JSON.stringify(updatedFavorites)
+      );
+    } catch (error) {
+      console.error("Erro ao salvar favoritos:", error);
+    }
+  };
+
+  const loadFavorites = async () => {
+    try {
+      const storedFavorites = await AsyncStorage.getItem(
+        `userFavorites_${activeUserId}`
+      );
+      if (storedFavorites) {
+        setFavoriteProducts(JSON.parse(storedFavorites));
+      }
+    } catch (error) {
+      console.error("Erro ao carregar favoritos:", error);
+    }
+  };
 
   const toggleFavorite = (product) => {
-    setFavoriteProducts((prevFavorites) => {
-      const isFavorited = prevFavorites.some((item) => item.id === product.id);
-      if(isFavorited){
-        return prevFavorites.filter((item) => item.id !== product.id);
-      }
-      return [product, ...prevFavorites];
-    });
+    const isAlreadyFavorited = favoriteProducts.some(
+      (item) => item.id === product.id
+    );
+
+    let updatedFavorites;
+    if (isAlreadyFavorited) {
+      updatedFavorites = favoriteProducts.filter(
+        (item) => item.id !== product.id
+      );
+    } else {
+      updatedFavorites = [product, ...favoriteProducts];
+    }
+
+    saveFavorites(updatedFavorites);
   };
 
-  const isFavorite = (productId) => {
-    return favoriteProducts.some((item) => item.id === productId);
-  };
+  useEffect(() => {
+    loadFavorites();
+  }, [activeUserId]);
 
-	return(
-		<ProductsFavoriteContext.Provider value={{ favoriteProducts, toggleFavorite, isFavorite }}>
-			{children}
-		</ProductsFavoriteContext.Provider>
-	)
+  return (
+    <ProductsFavoriteContext.Provider
+      value={{ favoriteProducts, toggleFavorite }}
+    >
+      {children}
+    </ProductsFavoriteContext.Provider>
+  );
 };
