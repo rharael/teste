@@ -1,12 +1,10 @@
 import styled from 'styled-components/native';
 
-
-export const Container = styled.View`
-width:90%;
+export const Container = styled.ScrollView`
+width: 100%;
 justify-contente: center;
 background-color: #FFF;
-font-family: 'Urbanist';
-
+font-family: 'Urbanist-Regular';
 `;
 export const ItemProduct = styled.View`
 flex-direction: row;
@@ -22,14 +20,27 @@ export const Title = styled.Text``;
 export const Price = styled.Text`
 margin-top: 11px;
 `;
+export const QuantityWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 81px;
+  height: 27px;
+  margin-top: 38.95px;
+`;
+
+export const QuantityButton = styled.TouchableOpacity``;
+
+export const Quantity = styled.Text`
+  font-size: 16px;
+  font-family: 'Urbanist-SemiBold';
+  color: #0F100D;
+`;
+
 export const Content = styled.View`
 margin-left: 26px;
 `;
-export const BtnAdd = styled.Text`
-margin-top: 38.95px;
-flex-direction: row;
-justify-content: space-between;
-`;
+
 export const Cupom = styled.View`
 margin-top:150px;
 width:100%;

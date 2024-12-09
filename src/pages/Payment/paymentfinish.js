@@ -29,7 +29,8 @@ export default function PaymentFinish({ navigation }){
 
         <Styles.IdBuy>ID da compra: #34930943</Styles.IdBuy>
 
-        <Styles.MyPurchasesButton>
+        <Styles.MyPurchasesButton onPress={() => 
+          navigation.reset({index: 0, routes:[{name: 'BuyPayment'}]})}>
           <Styles.MyPurchasesText>Minhas compras</Styles.MyPurchasesText>
         </Styles.MyPurchasesButton>
       </Styles.Main>

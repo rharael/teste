@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Modal, TouchableWithoutFeedback } from 'react-native';
 import Styles from './styles';
 import {useNavigation} from '@react-navigation/native';
+import { ProductsCartContext } from '../../utils/context/ProductsCartContext';
 
 export default function Details({ route, nav }){
   const navigation = useNavigation();
   const { product }  = route?.params;
   const [expandedDescription, setExpandedDescription] = useState(false);
   const [visibleModal, setVisibleModal] = useState(false);
-  const [QuantityProduct, setQuantityProduct] = useState(1);
+  const [quantityProduct, setQuantityProduct] = useState(1);
+  const { addProductCart } = useContext(ProductsCartContext);
+  const [productCart, setProductCart] = useState({
+    image: product.image,
+    name: product.title,
+    price: product.price,
+    quantity: '',
+  })
 
   const handleIncrement = () => {
     setQuantityProduct((count) => count + 1);
@@ -16,6 +24,12 @@ export default function Details({ route, nav }){
 
   const handleDecrement = () => {
     setQuantityProduct((count) => ( count > 1 ? count - 1 : count ));
+  }
+
+  const handleProductCart = () => {
+    setProductCart(productCart.quantity = quantityProduct);
+
+    addProductCart(productCart);
   }
 
   return(
@@ -33,7 +47,7 @@ export default function Details({ route, nav }){
         </Styles.ProductImageArea>
 
         <Styles.ProductHeader>
-          <Styles.ProductTitle>{ product.title }</Styles.ProductTitle>
+          <Styles.ProductTitle>{product.title}</Styles.ProductTitle>
 
           <Styles.IconsArea>
             <Styles.IconButton>
@@ -45,7 +59,7 @@ export default function Details({ route, nav }){
           </Styles.IconsArea>
         </Styles.ProductHeader>
 
-        <Styles.Description numberOfLines={ expandedDescription ? 0 : 2 }>
+        <Styles.Description numberOfLines={expandedDescription ? 0 : 2}>
           { product.description }
         </Styles.Description>
         <Styles.ReadMore onPress={ () => setExpandedDescription(!expandedDescription) }>
@@ -55,34 +69,38 @@ export default function Details({ route, nav }){
         <Styles.ReviewContainer>
           <Styles.Stars>
             <Styles.StarIcon/>
-            <Styles.StarContent>{ product.rating.rate }</Styles.StarContent>
+            <Styles.StarContent>{product.rating.rate}</Styles.StarContent>
           </Styles.Stars>
           <Styles.Reviews>
-            <Styles.ReviewValue>{ product.rating.count }</Styles.ReviewValue>
+            <Styles.ReviewValue>{product.rating.count}</Styles.ReviewValue>
             <Styles.ReviewContent>avaliações</Styles.ReviewContent>
           </Styles.Reviews>
         </Styles.ReviewContainer>
 
-        <Styles.DiscountPrice>$ { product.price }</Styles.DiscountPrice>
-        <Styles.ProductPrice>$ { product.price }</Styles.ProductPrice>
+        <Styles.DiscountPrice>
+          $ {(product.price + (product.price * 0.2)).toFixed(2)}
+        </Styles.DiscountPrice>
+        <Styles.ProductPrice>$ {product.price.toFixed(2)}</Styles.ProductPrice>
       </Styles.Product>
 
       <Styles.Actions>
         <Styles.QuantityControl>
-          <Styles.QuantityButton onPress={ handleDecrement }>
+          <Styles.QuantityButton onPress={handleDecrement}>
             <Styles.QuantityDown/>
           </Styles.QuantityButton>
 
-          <Styles.QuantityText> {QuantityProduct} </Styles.QuantityText>
+          <Styles.QuantityText> {quantityProduct} </Styles.QuantityText>
 
-          <Styles.QuantityButton onPress={ handleIncrement }>
+          <Styles.QuantityButton onPress={handleIncrement}>
             <Styles.QuantityUp/>
           </Styles.QuantityButton>
         </Styles.QuantityControl>
 
         <Styles.AddCartButtom>
           <Styles.AddCartIcon/>
-          <Styles.AddCartText onPress={() => setVisibleModal(true)}>Adicionar ao carrinho</Styles.AddCartText>
+          <Styles.AddCartText 
+            onPress={() => {setVisibleModal(true); handleProductCart()}}
+          >Adicionar ao carrinho</Styles.AddCartText>
         </Styles.AddCartButtom>
       </Styles.Actions>
 
@@ -106,7 +124,8 @@ export default function Details({ route, nav }){
                 </Styles.KeepShoppingText>
               </Styles.KeepShoppingButton>
 
-              <Styles.GoToCartButton>
+              <Styles.GoToCartButton 
+                onPress={() => navigation.reset({index: 0, routes:[{name: 'Cart'}]})}>
                 <Styles.GoToCartText>Ir para o carrinho</Styles.GoToCartText>
               </Styles.GoToCartButton>
 

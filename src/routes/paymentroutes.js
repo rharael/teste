@@ -4,6 +4,7 @@ import Cart from '../pages/Cart/cart';
 import Payment from '../pages/Payment/payment';
 import NewCard from '../pages/Payment/newcard';
 import PaymentFinish from '../pages/Payment/paymentfinish';
+import Buy from '../pages/Buy/buy';
 import { CardProvider } from '../utils/context/CardContext';
 
 
@@ -44,6 +45,14 @@ export default function PaymentStack(){
             headerShown: false
           }}
         />
+
+      <Stack.Screen
+         name='BuyPayment'
+         component={Buy}
+         options={{
+           headerShown: false
+         }}
+     />
 
       </Stack.Navigator>
 	</CardProvider>

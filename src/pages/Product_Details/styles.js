@@ -4,7 +4,7 @@ import Icons from '../../assets/icons/index';
 const Container = styled.View`
   flex: 1;
   background-Color: #fff;
-  width: 393px;
+  width: 100%;
   margin: 20px auto 0px;
 `;
 
@@ -13,7 +13,7 @@ const Header = styled.View`
   margin: 30px auto 0px;
   justify-content: center;
   background-color: #fff;
-  width: 353px;
+  width: 90%;
 `;
 
 const BackButton = styled.TouchableOpacity`
@@ -26,7 +26,7 @@ const BackIcon = styled(Icons.Back)`
 `;
 
 const Product = styled.ScrollView`
-  width: 353px;
+  width: 90%;
   margin: 0 auto;
 `;
 
@@ -162,7 +162,7 @@ const Actions = styled.View`
   flex-direction: row;
   justify-content: space-between;
   height: 8.5%;
-  width: 353px;
+  width: 90%;
   margin: 0 auto;
 `;
 
@@ -178,7 +178,7 @@ const QuantityControl = styled.View`
 `;
 
 const QuantityButton = styled.TouchableOpacity`
-  background-Color: #fff;
+  background-color: #fff;
   width: 27px;
   height: 27px;
   border-radius: 5px;
@@ -216,6 +216,8 @@ const AddCartText = styled.Text`
   font-size: 14px;
   font-family: 'Urbanist-SemiBold';
   color: #fff;
+  height: 100%;
+  text-align-vertical: center;
 `;
 
 const ModalOpacity = styled.View`
@@ -271,7 +273,7 @@ const AddedCartSubtitle = styled.Text`
 `;
 
 const KeepShoppingButton = styled.TouchableOpacity`
-  width: 353px;
+  width: 100%;
   height: 40px;
   border-radius: 10px;
   background-Color: #fe724c;
@@ -286,7 +288,7 @@ const KeepShoppingText = styled.Text`
 `;
 
 const GoToCartButton = styled.TouchableOpacity`
-  width: 353px;
+  width: 100%;
   height: 40px;
   border: 1px solid #fe724c;
   border-radius: 10px;

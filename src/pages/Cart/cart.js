@@ -1,44 +1,35 @@
 
-import React, { useState, Flatlist, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Container, Cupom, TitleCupom, TextInput,
        SubTotalPrice, Discount, Total, TextSub, PriceSub, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
 import Icons from '../../assets/icons';
-import { UserContext } from '../../utils/context/UserContext';
+import { ProductsCartContext } from '../../utils/context/ProductsCartContext';
+import ItemProducts from './itemproducts';
+import { FlatList } from 'react-native';
 
-function Cart ({navigation}){
+export default function Cart ({navigation}){
     const [cupom, setCupom] = useState('');
-    const {cartProduct} = useContext (UserContext);
+    const { productsCart, totalPrice } = useContext(ProductsCartContext);
+
     return (
-        <Container>
-           {/* <Flatlist 
-                data = {cartProduct}
-                keyExtractor = {(item) => `${item.title} - ${item.price}`}
-                renderItem = {({item}) => <ItemProducts data = {item} />
-                }
-            />  */}
-            {/* <ItemProduct>
-                <Image
-                    source={require('../../assets/images/iphone.png')}
+        <Container showsVerticalScrollIndicator={false}>
+           <FlatList
+                data = {productsCart}
+                keyExtractor = {(item, index) => index.toString()}
+                renderItem = {({item}) => <ItemProducts data ={item}/>}
+                scrollEnabled={false}
                 />
-                <Content>
-                    <Title>Apple Iphone 14 pro</Title>
-                    <Price>R$ 6.999,00</Price>
-                    <BtnAdd>
-                        <Icons.Minusfill />
-                        <Icons.Plusfill />
-                    </BtnAdd>
-                </Content>
-            </ItemProduct> */}
+
             <Cupom>
                 <TitleCupom>Você Possui algum CUPOM?</TitleCupom>
                 <BtnCupom>
-                    <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom}  />
+                    <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom}/>
                     <Icons.CheckFill />
                 </BtnCupom>
             </Cupom>
             <SubTotalPrice>
                 <TextSub>Subtotal</TextSub>
-                <PriceSub>R$13.998,00</PriceSub>
+                <PriceSub>$ {totalPrice.toFixed(2)}</PriceSub>
             </SubTotalPrice>
             <Discount> 
                 <TextDisc>Desconto</TextDisc>
@@ -56,5 +47,3 @@ function Cart ({navigation}){
         </Container>
     );
 }
-
-export default Cart;
