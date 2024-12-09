@@ -8,9 +8,9 @@ export const Container = styled.View`
 
 export const LogoContainer = styled.View`
   width: 100%;
-  height: 43px;
+  height: 53px;
   margin-top: 118px;
-  margin-bottom: 86px;
+  margin-bottom: 76px;
 `;
 
 export const LogoText = styled.Text`
@@ -49,6 +49,18 @@ export const RememberMeContainer = styled.View`
   margin-top: -2px;
 `;
 
+export const CustomCheckbox = styled.View`
+  width: 18px;
+  height: 18px;
+  border-width: 1px;
+  border-color: #ccc;
+  background-color: ${({ selected }) => (selected ? '#0F100D' : '#fff')};
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin-right: 8px;
+`;
+
 export const RememberMeText = styled.Text`
   color: #7c7c7c;
   font-size: 16px;
@@ -75,7 +87,7 @@ export const FooterText = styled.Text`
   color: #0f100d;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 44px
+  margin-bottom: 44px;
 `;
 
 export const CreateAccountText = styled.Text`

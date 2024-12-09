@@ -8,9 +8,9 @@ export const Container = styled.View`
 
 export const LogoContainer = styled.View`
   width: 100%;
-  height: 43px;
+  height: 53px;
   margin-top: 118px;
-  margin-bottom: 86px;
+  margin-bottom: 76px;
 `;
 
 export const LogoText = styled.Text`
