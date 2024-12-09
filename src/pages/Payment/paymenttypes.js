@@ -1,7 +1,8 @@
 import Styles from './styles';
 import Images from '../../assets/images/images';
 
-export default function PaymentTypes({ data }){
+export default function PaymentTypes({ data, selectedOption , setSelectedOption }){
+  const isSelected = selectedOption === data.number;
   return(
     <Styles.Payment>
       <Styles.PaymentContainer>
@@ -16,7 +17,12 @@ export default function PaymentTypes({ data }){
           <Styles.PaymentInformationText>{'******** ' + data.number.slice(-9)}</Styles.PaymentInformationText>
         </Styles.PaymentInformation>
 
-        <Styles.PaymentInformationRadio/>
+        <Styles.PaymentInformationRadio 
+          isSelected={isSelected}
+          onPress={() => setSelectedOption(data.number)}
+        >
+          {isSelected && <Styles.RadioCircle/>}
+        </Styles.PaymentInformationRadio>
       </Styles.PaymentContainer>
 
       <Styles.LineDiv/>

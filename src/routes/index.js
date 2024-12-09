@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import styled from 'styled-components/native'
 import Icons from '../assets/icons';
 
-import Favorite from '../pages/Favorites/favorites';
+import FavoriteStack from './favoriteRoutes';
 import ProfileStack from './profile';
 import PaymentStack from './paymentroutes'
 import HomeStack from './homeRoutes';
@@ -19,7 +19,7 @@ export default function Routes(){
         tabBarIcon: ({focused}) => {
           if(route.name === 'HomeStack') 
             return focused ? <NameNav>Início</NameNav> : <Icons.HomeIcon/>;
-          else if(route.name === 'Favorite') 
+          else if(route.name === 'FavoriteStack') 
             return focused ? <NameNav>Favoritos</NameNav> : <Icons.Favorite/>;
 		  else if(route.name === 'Cart') 
             return focused ? <NameNav>Carrinho</NameNav> : <Icons.Cart/>;
@@ -43,8 +43,8 @@ export default function Routes(){
       />
 
       <Tab.Screen
-        name='Favorite'
-        component={Favorite}
+        name='FavoriteStack'
+        component={FavoriteStack}
       />
 
       <Tab.Screen

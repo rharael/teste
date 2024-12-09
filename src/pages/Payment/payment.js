@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 import Styles from './styles';
 import Images from '../../assets/images/images';
@@ -6,7 +6,18 @@ import PaymentTypes from './paymenttypes';
 import { CardContext } from '../../utils/context/CardContext';
 
 export default function Payment({ navigation }){
-  const { cards } = useContext(CardContext)
+  const { cards } = useContext(CardContext);
+  const [ selectedOption, setSelectedOption ] = useState('');
+
+  useEffect(() => {
+    if(cards.length === 0){
+      setSelectedOption('Pix');
+    }
+    else{
+      const principalCard = cards.find(card => card.isPrincipal);
+      setSelectedOption(principalCard ? principalCard.number : 'Pix');
+    }
+  }, [cards]);
 
   return(
     <Styles.Container>
@@ -22,7 +33,12 @@ export default function Payment({ navigation }){
         <FlatList
           data={cards}
           keyExtractor={(item) => `${item.idCard}`}
-          renderItem={({item}) => <PaymentTypes data={item}/>}
+          renderItem={({item}) => 
+            <PaymentTypes 
+              data={item} 
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
+            />}
           scrollEnabled={false}
         />
 
@@ -36,7 +52,12 @@ export default function Payment({ navigation }){
             <Styles.PaymentInformationText>Aprovação imediata</Styles.PaymentInformationText>
           </Styles.PaymentInformation>
 
-          <Styles.PaymentInformationRadio/>
+          <Styles.PaymentInformationRadio
+            isSelected={selectedOption === 'Pix'}
+            onPress={() => setSelectedOption('Pix')}
+          >
+            {selectedOption === 'Pix' && <Styles.RadioCircle />}
+          </Styles.PaymentInformationRadio>
         </Styles.PaymentContainer>
         
         <Styles.AddCardButton onPress={() => navigation.navigate('NewCard')}>

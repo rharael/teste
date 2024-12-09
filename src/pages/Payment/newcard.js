@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import Styles from './styles';
 import Images from '../../assets/images/images';
 import { Alert } from 'react-native';
+import { UserContext } from '../../utils/context/UserContext';
 import { CardContext } from '../../utils/context/CardContext';
 
 export default function NewCard({ navigation }){
@@ -236,7 +237,9 @@ export default function NewCard({ navigation }){
               <Styles.SetPaymentCheckbox onPress={() =>
                 setNewCard({...newCard, isPrincipal: !newCard.isPrincipal})}
                 selected = {newCard.isPrincipal}
-              />
+              >
+                <Styles.ConfirmCheckbox/>
+              </Styles.SetPaymentCheckbox>
               <Styles.SetPaymentTitle>Definir como principal</Styles.SetPaymentTitle>
             </Styles.SetPaymentWrapper>
 

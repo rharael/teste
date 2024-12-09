@@ -1,5 +1,6 @@
 import React, { useContext, createContext, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Alert, View } from "react-native";
 import { UserContext } from "./UserContext";
 
 export const CardContext = createContext()
@@ -42,7 +43,7 @@ export const CardProvider = ({ children })=> {
 		if (!idCard) return;
 
 		const cardWithId = { ...newCard, idCard };
-		const updatedCards = [...cards, cardWithId];
+		const updatedCards = [cardWithId, ...cards];
 		console.log(cardWithId)
 		saveCards(updatedCards);
 		};
