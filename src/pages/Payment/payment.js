@@ -3,15 +3,15 @@ import { FlatList } from 'react-native';
 import Styles from './styles';
 import Images from '../../assets/images/images';
 import PaymentTypes from './paymenttypes';
-import { UserContext } from '../../utils/context/UserContext';
+import { CardContext } from '../../utils/context/CardContext';
 
 export default function Payment({ navigation }){
-  const { cards } = useContext(UserContext);
+  const { cards } = useContext(CardContext)
 
   return(
     <Styles.Container>
       <Styles.Header>
-       <Styles.BackButton>
+       <Styles.BackButton onPress={() => navigation.goBack()}>
           <Styles.BackIcon/>
        </Styles.BackButton>
        <Styles.HeaderText>Pagamento</Styles.HeaderText>
@@ -21,7 +21,7 @@ export default function Payment({ navigation }){
 
         <FlatList
           data={cards}
-          keyExtractor={(item) => `${item.number}-${item.expiry}`}
+          keyExtractor={(item) => `${item.idCard}`}
           renderItem={({item}) => <PaymentTypes data={item}/>}
           scrollEnabled={false}
         />
