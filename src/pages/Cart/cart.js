@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from 'react';
 import { Container, Cupom, TitleCupom, TextInput,
        SubTotalPrice, Discount, Total, TextSub, PriceSub, TextDisc, PriceDisc, Line, TextTotal, PriceTotal, PaymentBtn, TextBt, BtnCupom,} from './styles'
