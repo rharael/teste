@@ -3,13 +3,13 @@ import Icons from '../../assets/icons/index';
 
 const Container = styled.View`
   flex: 1;
-  background-Color: #fff;
+  background-color: #fff;
   width: 100%;
   margin: 20px auto 0px;
 `;
 
 const Header = styled.View`
-  width: 353px;
+  width: 90%;
   padding: 60px 0 0;
   margin: 0 auto;
 `;
@@ -50,7 +50,6 @@ const ShoppingCartImage = styled(Icons.ShopCart)`
 const SearchProductWrapper = styled.View`
   flex-direction: row;
   background-Color: #f0f1f2;
-  width: 353px;
   height: 46px;
   border-radius: 12px;
   margin: 16px 0 10px 0;
@@ -69,6 +68,8 @@ const SearchIcon = styled(Icons.Search)`
 `;
 
 const Main = styled.ScrollView`
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const SectionTitle = styled.Text`
@@ -85,8 +86,6 @@ const Categories = styled.ScrollView.attrs(() => ({
   },
 }))`
   max-height: 76px;
-  width: 353px;
-  margin: 0 auto;
 `;
 
 const CategoryItem = styled.TouchableOpacity`
@@ -118,11 +117,11 @@ const CategoryText = styled.Text`
 const LineDiv = styled.View`
   border: 1px solid #f5f5f5;
   margin: 27px auto 0;
-  width: 353px;
+  width: 100%;
 `;
 
 const Products = styled.View`
-  width: 353px;
+  width: 100%;
   margin: 0 auto;
 `;
 
@@ -209,6 +208,9 @@ const LoadingContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: #FFF;
+  width: 100%;
+  height: 100%;
 `;
 
 const Styles = {

@@ -13,7 +13,7 @@ export default function ProductCard({data}){
       <Styles.ProductName>{data.title}</Styles.ProductName>
       
       <Styles.ProductInformation>
-        <Styles.ProductPrice>${data.price}</Styles.ProductPrice>
+        <Styles.ProductPrice>$ {data.price.toFixed(2)}</Styles.ProductPrice>
         
         <Styles.ProductStars>
           <Styles.ProductStarIcon/>

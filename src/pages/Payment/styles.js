@@ -4,7 +4,7 @@ import Icons from '../../assets/icons/index';
 const Container = styled.View`
   flex: 1;
   background-Color: #fff;
-  width: 393px;
+  width: 100%;
   margin: 0 auto;
 `;
 
@@ -13,7 +13,7 @@ const Header = styled.View`
   height: 40px;
   margin: 50px auto 0px;
   align-items: center;
-  width: 353px;
+  width: 90%;
 `;
 
 const BackButton = styled.TouchableOpacity`
@@ -32,7 +32,7 @@ const HeaderText = styled.Text`
 `;
 
 const Main = styled.ScrollView`
-  width: 353px;
+  width: 90%;
   margin: 0 auto;
 `;
 
@@ -141,7 +141,7 @@ const LineDivPurchase = styled.View`
 `;
 
 const Footer = styled.View`
-  width: 353px;
+  width: 90%;
   margin: 0 auto;
 `;
 

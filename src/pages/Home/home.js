@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 import Api from '../../services/Api';
 import { ActivityIndicator } from 'react-native';
 
-export default function Home(){
+export default function Home({ navigation }){
   const [columns, setColumns] = useState(2);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -85,7 +85,7 @@ export default function Home(){
             <Styles.UserName>Nome do Usuário</Styles.UserName>
           </Styles.WelcomeDiv>
 
-          <Styles.ShoppingCart>
+          <Styles.ShoppingCart onPress={() => navigation.navigate('BuyHome')}>
             <Styles.ShoppingCartImage/>
           </Styles.ShoppingCart>
         </Styles.HeaderDiv>
