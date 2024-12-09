@@ -6,6 +6,12 @@ justify-contente: center;
 background-color: #FFF;
 font-family: 'Urbanist-Regular';
 `;
+export const ItemProduct = styled.View`
+flex-direction: row;
+margin-top: 74px;
+margin-left: 17px;
+`;
+
 export const Image = styled.Image`
 width: 84px;
 height: 109px;

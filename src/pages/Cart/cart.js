@@ -1,5 +1,3 @@
-import React from "react";
-import { Container, Image, } from './styles'
 
 import React, { useState, useContext } from 'react';
 import { Container, Cupom, TitleCupom, TextInput,

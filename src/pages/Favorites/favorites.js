@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { FavoritesScreen, Title, Image} from "./styles";
 
 
-
 function Favorite(){
     return (
     <FavoritesScreen>

@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import Styles from './styles';
 import Images from '../../assets/images/images';
 import { Alert } from 'react-native';
-import { UserContext } from '../../utils/context/UserContext';
+import { CardContext } from '../../utils/context/CardContext';
 
 export default function NewCard({ navigation }){
-  const { cards, setCards } = useContext(UserContext);
+	const { addCard, setPrincipalCard } = useContext(CardContext);
 
   const [newCard, setNewCard] = useState({
     name: '',
@@ -60,8 +60,10 @@ export default function NewCard({ navigation }){
       Alert.alert('Erro', 'O nome no cartão é obrigatório.');
       return false;
     }
-
+	console.log(cardNumber.length)
+	console.log(cardNumber)
     if(cardNumber.length !== 16){
+		console.log(cardNumber.length)
       Alert.alert('Erro', 'O número do cartão deve ter 16 dígitos');
       return false;
     }
@@ -97,7 +99,9 @@ export default function NewCard({ navigation }){
 
   const handleSaveCard = () => {
     if(validateFields()){
-      setCards([...cards, newCard]);
+      addCard(newCard);
+    if(newCard.isPrincipal){setPrincipalCard(newCard)}
+	  console.log(newCard)
       navigation.reset({index: 0, routes:[{name: 'Payment'}]});
     }
   }

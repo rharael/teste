@@ -4,7 +4,7 @@ import Icons from '../assets/icons';
 
 import Favorite from '../pages/Favorites/favorites';
 import ProfileStack from './profile';
-import Cart from '../pages/Cart/cart';
+import PaymentStack from './paymentroutes'
 import HomeStack from './homeRoutes';
 
 const Tab = createBottomTabNavigator();
@@ -21,6 +21,8 @@ export default function Routes(){
             return focused ? <NameNav>Início</NameNav> : <Icons.HomeIcon/>;
           else if(route.name === 'Favorite') 
             return focused ? <NameNav>Favoritos</NameNav> : <Icons.Favorite/>;
+		  else if(route.name === 'Cart') 
+            return focused ? <NameNav>Carrinho</NameNav> : <Icons.Cart/>;
           else if(route.name === 'Profile') 
             return focused ? <NameNav>Perfil</NameNav> : <Icons.UserHome/>;
         },
@@ -43,6 +45,11 @@ export default function Routes(){
       <Tab.Screen
         name='Favorite'
         component={Favorite}
+      />
+
+      <Tab.Screen
+        name='Cart'
+        component={PaymentStack}
       />
 
       <Tab.Screen
