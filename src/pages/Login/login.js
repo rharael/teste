@@ -20,7 +20,7 @@ import {
   LoginButtonText,
   FooterText,
   CreateAccountText,
-  CustomCheckbox
+  CustomCheckbox,
 } from './styles';
 import { UserContext } from '../../utils/context/UserContext';
 
@@ -30,28 +30,36 @@ const LoginScreen = ({ navigation }) => {
   const [rememberMe, setRememberMe] = useState(false);
 
   const { setActiveUser } = useContext(UserContext);
-  const handleLogin = () => {
 
-    const userId = username;
-    setActiveUser(userId);
-    navigation.navigate("AppRoutes");
-
+  const isValidLogin = () => {
     if (!username) {
       Alert.alert('Erro', 'Por favor, insira seus dados.');
-      return;
+      return false;
     }
 
     if (!password) {
       Alert.alert('Erro', 'Por favor, insira sua senha.');
-      return;
+      return false;
     }
 
     if (password.length < 8) {
       Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres.');
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleLogin = () => {
+    if (!isValidLogin()) {
       return;
     }
 
+    const userId = username;
+    setActiveUser(userId);
+
     Alert.alert('Sucesso', 'Login realizado com sucesso!');
+    navigation.navigate('AppRoutes');
   };
 
   return (
