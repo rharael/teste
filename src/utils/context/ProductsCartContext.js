@@ -4,6 +4,8 @@ export const ProductsCartContext = createContext()
 
 export const ProductsCartProvider = ({ children })=> {
 	const [productsCart, setProductsCart] = useState([]);
+	const [coupon, setCoupon] = useState(null);
+
 
 	const addProductCart = (newProduct) => {
 		const updatedProductsCart = [...productsCart, newProduct];
@@ -18,16 +20,34 @@ export const ProductsCartProvider = ({ children })=> {
 		);
 	};
 
+  const applyCoupon = (code) => {
+    if (code === 'PRIMEIRACOMPRA' && !coupon) {
+      setCoupon({ code, discount: 0.20 });
+      return true;
+    }
+    if (!code) {
+      setCoupon(null);
+    }
+    return false;
+  };
+  const subtotalPrice = productsCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const discount = coupon ? subtotalPrice * coupon.discount : 0;
+  const total = subtotalPrice - discount;
+
 	const removeProductCart = (name) => {
 		setProductsCart((prevItems) =>
 		  prevItems.filter((item) => item.name !== name)
 		);
 	  };
 
-	const totalPrice = productsCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+		const clearCart = () => {
+			setProductsCart([]);
+		}
+
+	
 
 	return(
-		<ProductsCartContext.Provider value={{ productsCart, addProductCart, updatedQuantity, totalPrice, removeProductCart }}>
+		<ProductsCartContext.Provider value={{ productsCart, addProductCart, updatedQuantity, subtotalPrice, removeProductCart, clearCart, total, discount, applyCoupon, coupon, setCoupon }}>
 			{children}
 		</ProductsCartContext.Provider>
 	)

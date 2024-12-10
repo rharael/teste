@@ -22,8 +22,8 @@ export default function ItemProducts({ data }) {
           <QuantityButton onPress={() => updatedQuantity(data.name, 1)}>
             <Icons.Plusfill />
           </QuantityButton>
-          <RemoveItem onClick={() => removeProductCart(product.name)}>
-            <Icons.Close />
+          <RemoveItem>
+            <Icons.Close onClick={() => removeProductCart(product.name)} />
           </RemoveItem>
         </QuantityWrapper>
       </Content>

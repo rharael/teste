@@ -1,5 +1,8 @@
 import styled from 'styled-components/native';
 
+
+export const CartContainer = styled.View``;
+
 export const Container = styled.ScrollView`
 width: 100%;
 justify-contente: center;
@@ -149,3 +152,23 @@ font-weight: 600;
 justify-content: center;
 color: #FFF;
 `;
+export const EmptyCart = styled.View`
+
+justify-content: center;
+align-items: center;
+`;
+
+export const EmptyImage = styled.Image`
+margin-top: 230px;
+`;
+export const EmptyTitle = styled.Text`
+font-family: 'Urbanist-SemiBold';
+font-size: 16px;
+font-style: normal;
+color: #2A2A2A;
+`;
+
+export const  TextMessageCoupon = styled.Text`
+color: #D30000;
+`;
+export const ViewTextCoupon = styled.View``;
