@@ -7,14 +7,14 @@ import { Container } from "./styles";
 const AuthCheckScreen = () => {
 	const { activeUserId } = useContext(UserContext);
 	const navigation = useNavigation();
-
+	
 	useEffect(() => {
 		if (activeUserId) {
 		navigation.navigate("AppRoutes");
 		} else {
 		navigation.navigate("Login");
 		}
-	}, []);
+	}, [activeUserId]);
 
 	return (
 		<Container>

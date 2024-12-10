@@ -13,8 +13,10 @@ export const UserProvider = ({ children }) => {
 	const loadUserData = async (id) => {
 		try {
 			const storedData = await AsyncStorage.getItem(`user_${id}`);
+			console.log("name",storedData.name)
 			if (storedData) {
 			setUserData(JSON.parse(storedData));
+			console.log("name set ",storedData.name)
 			} else {
 			const response = await Api.get(`users/${id}`);
 			const fetchedData = {

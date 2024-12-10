@@ -2,11 +2,13 @@ import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
 
 const { height } = Dimensions.get('window');
+const screenWidth = Dimensions.get('window').width;
 
 const Container = styled.View`
-  flex: 1;
-  background-Color: #FFFFFF;
-  padding: 0 20px;
+	flex: 1;
+	background-color: #FFFFFF;
+	padding: 0 20px;
+	align-items: center;
 `;
 
 const Header = styled.View`
@@ -39,7 +41,7 @@ const MenuContainer = styled.View`
 `;
 
 const MenuItem = styled.TouchableOpacity`
-	width: 95%;
+	width: ${screenWidth *0.85}px;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
@@ -81,7 +83,7 @@ const MenuSubtitle = styled.Text`
 `;
 
 const NotificationSwitch = styled.View`
-	width: 95%;
+	width: ${screenWidth *0.85}px;
 	margin-top: ${height * 0.009}px;
 	display: flex;
 	flex-direction: row;
@@ -101,7 +103,7 @@ const LeaveButton = styled.TouchableOpacity`
 	margin-top: ${height * 0.10}px;
 	margin-bottom: 30px;
 	align-items: center;
-	width: 95%;
+	width: ${screenWidth *0.85}px;
 	heght: 48px;
 	padding: 16px;
 	border-radius: 12px;
@@ -121,28 +123,53 @@ const LeaveButtonText = styled.Text`
 const HeaderUser = styled.View`
 	align-items: center;
 	justify-content: center;
-	margin-bottom: ${height * 0.10}px;
+	margin-bottom: ${height * 0.085}px;
+`;
+
+const LabelContainer = styled.View`
+	width: 95%;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
 `;
 
 const Label = styled.Text`
-	font-size: 16px;
 	margin-bottom: 8px;
 	color: #333333;
+	font-family: 'Urbanist-Medium';
+	font-size: 13px;
+`;
+
+const InputContainer = styled.View`
+	width: ${screenWidth * 0.90}px;;
+	margin-bottom: ${height * 0.03}px;
+	border-width: 1px;
+	border-color: #DCDCDC;
+	border-radius: 12px;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px;
 `;
 
 const Input = styled.TextInput`
-	height: 40px;
-	border: 1px solid #e6e6e6;
-	border-radius: 4px;
-	padding: 8px;
-	margin-bottom: 16px;
-	color: #333333;
+	flex: 1;
+	padding-left: 10px;
+	font-family: 'Urbanist-Regular';
+	font-size: 13px;
+	color: #1E1E1E;
 `;
 
+const InputScrollContainer = styled.ScrollView`
+`;
+
+const EmptySpace = styled.View`
+	width: ${screenWidth *0.85}px;
+	height: ${height * 0.17}px;
+`;
 
 const Styles = { Container, Header, ProfileName, ProfileEmail,
 	MenuContainer, MenuItem, MenuIcon,
 	MenuTitle, MenuSubtitle, MenuTextContainer , MenuItemLeft, NotificationSwitch,
-	LeaveButton, NotificationText, LeaveButtonText, HeaderUser, Label, Input };
+	LeaveButton, NotificationText, LeaveButtonText, HeaderUser, Label, Input, InputContainer, LabelContainer, EmptySpace, InputScrollContainer };
 
 export default Styles
