@@ -70,7 +70,7 @@ export const BuyProvider = ({ children }) => {
   }, [activeUserId]);
 
   return (
-    <BuyContext.Provider value={{ buys, generateBuy, lastSubtotalPrice, lastDiscount, lastTtotal }}>
+    <BuyContext.Provider value={{ buys, generateBuy, lastSubtotalPrice, lastDiscount, lastTotal }}>
       {children}
     </BuyContext.Provider>
   );
