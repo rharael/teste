@@ -22,7 +22,7 @@ export default function Cart ({navigation}){
             <Cupom>
                 <TitleCupom>Você Possui algum CUPOM?</TitleCupom>
                 <BtnCupom>
-                    <TextInput placeholder="Cupom" value={cupom} onChangeText={setCupom}/>
+                    <TextInput placeholder="CUPOM" value={cupom} onChangeText={setCupom}/>
                     <Icons.CheckFill />
                 </BtnCupom>
             </Cupom>
