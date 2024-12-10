@@ -18,15 +18,20 @@ export const ProductsCartProvider = ({ children })=> {
 		);
 	};
 
-	const clearCart = () => {
-		setProductsCart([]);
-	}
+	const removeProductCart = (name) => {
+		setProductsCart((prevItems) =>
+		  prevItems.filter((item) => item.name !== name)
+		);
+	  };
 
-	const subtotalPrice = productsCart.reduce(
-		(sum, item) => sum + item.price * item.quantity, 0);
+		const clearCart = () => {
+			setProductsCart([]);
+		}
+
+	const subtotalPrice = productsCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 	return(
-		<ProductsCartContext.Provider value={{ productsCart, addProductCart, updatedQuantity, subtotalPrice, clearCart, }}>
+		<ProductsCartContext.Provider value={{ productsCart, addProductCart, updatedQuantity, subtotalPrice, removeProductCart, clearCart }}>
 			{children}
 		</ProductsCartContext.Provider>
 	)

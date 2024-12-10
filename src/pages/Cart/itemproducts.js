@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ItemProduct, Image, Content, Title, Price, QuantityWrapper, QuantityButton, Quantity } from "./styles";
+import { ItemProduct, Image, Content, Title, Price, QuantityWrapper, QuantityButton, Quantity, RemoveItem } from "./styles";
 import Icons from "../../assets/icons";
 import { ProductsCartContext } from "../../utils/context/ProductsCartContext";
 
@@ -22,6 +22,9 @@ export default function ItemProducts({ data }) {
           <QuantityButton onPress={() => updatedQuantity(data.name, 1)}>
             <Icons.Plusfill />
           </QuantityButton>
+          <RemoveItem onClick={() => removeProductCart(product.name)}>
+            <Icons.Close />
+          </RemoveItem>
         </QuantityWrapper>
       </Content>
     </ItemProduct>
