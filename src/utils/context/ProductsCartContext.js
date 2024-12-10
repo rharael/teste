@@ -18,10 +18,16 @@ export const ProductsCartProvider = ({ children })=> {
 		);
 	};
 
+	const removeProductCart = (name) => {
+		setProductsCart((prevItems) =>
+		  prevItems.filter((item) => item.name !== name)
+		);
+	  };
+
 	const totalPrice = productsCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
 	return(
-		<ProductsCartContext.Provider value={{ productsCart, addProductCart, updatedQuantity, totalPrice }}>
+		<ProductsCartContext.Provider value={{ productsCart, addProductCart, updatedQuantity, totalPrice, removeProductCart }}>
 			{children}
 		</ProductsCartContext.Provider>
 	)
