@@ -8,7 +8,7 @@ import { FlatList } from 'react-native';
 
 export default function Cart ({navigation}){
     const [cupom, setCupom] = useState('');
-    const { productsCart, totalPrice } = useContext(ProductsCartContext);
+    const { productsCart, subtotalPrice } = useContext(ProductsCartContext);
 
     return (
         <Container showsVerticalScrollIndicator={false}>
@@ -28,7 +28,7 @@ export default function Cart ({navigation}){
             </Cupom>
             <SubTotalPrice>
                 <TextSub>Subtotal</TextSub>
-                <PriceSub>$ {totalPrice.toFixed(2)}</PriceSub>
+                <PriceSub>$ {subtotalPrice.toFixed(2)}</PriceSub>
             </SubTotalPrice>
             <Discount> 
                 <TextDisc>Desconto</TextDisc>

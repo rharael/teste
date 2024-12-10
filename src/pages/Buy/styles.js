@@ -92,6 +92,7 @@ const ProductInformation = styled.View`
 `;
 
 const ProductInformationWrapper = styled.View`
+  width: 86%;
 `;
 
 const ProductInformationTitle = styled.Text`

@@ -4,9 +4,13 @@ import Styles from './styles';
 import Images from '../../assets/images/images';
 import PaymentTypes from './paymenttypes';
 import { CardContext } from '../../utils/context/CardContext';
+import { ProductsCartContext } from '../../utils/context/ProductsCartContext';
+import { BuyContext } from '../../utils/context/BuyContext';
 
 export default function Payment({ navigation }){
   const { cards } = useContext(CardContext);
+  const { productsCart, subtotalPrice, clearCart } = useContext(ProductsCartContext);
+  const { generateBuy } = useContext(BuyContext);
   const [ selectedOption, setSelectedOption ] = useState('');
 
   useEffect(() => {
@@ -18,6 +22,14 @@ export default function Payment({ navigation }){
       setSelectedOption(principalCard ? principalCard.number : 'Pix');
     }
   }, [cards]);
+
+  const handlePayment = () => {
+    if(productsCart.length > 0){
+      generateBuy(productsCart, subtotalPrice);
+      clearCart();
+      navigation.reset({index: 0, routes:[{name: 'PaymentFinish'}]});
+    }
+  }
 
   return(
     <Styles.Container>
@@ -70,25 +82,23 @@ export default function Payment({ navigation }){
         <Styles.PurchaseValuesContainer>
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Subtotal</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>R$ 13.998,00</Styles.PurchaseValue>
+            <Styles.PurchaseValue>$ {subtotalPrice.toFixed(2)}</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
 
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Desconto</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>-R$ 2.800,00</Styles.PurchaseValue>
+            <Styles.PurchaseValue>-$ --------</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
 
           <Styles.LineDivPurchase/>
 
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Total</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>R$ 11.198,00</Styles.PurchaseValue>
+            <Styles.PurchaseValue>$ --------</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
         </Styles.PurchaseValuesContainer>
 
-        <Styles.Button onPress={() => 
-          navigation.reset({index: 0, routes:[{name: 'PaymentFinish'}]})}
-        >
+        <Styles.Button onPress={handlePayment}>
           <Styles.ButtonText>Confirmar compra</Styles.ButtonText>
         </Styles.Button>
       </Styles.Footer>

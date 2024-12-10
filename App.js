@@ -6,6 +6,7 @@ import AuthRoutes from "./src/routes/AuthRoutes";
 import { loadFonts } from "./src/assets/fonts/fonts";
 import { ProductsCartProvider } from "./src/utils/context/ProductsCartContext";
 import { ProductsFavoriteProvider } from "./src/utils/context/ProductsFavoriteContext";
+import { BuyProvider } from "./src/utils/context/BuyContext";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -27,9 +28,11 @@ export default function App() {
     <UserProvider>
       <ProductsFavoriteProvider>
         <ProductsCartProvider>
-          <NavigationContainer>
-            <AuthRoutes />
-          </NavigationContainer>
+          <BuyProvider>
+            <NavigationContainer>
+              <AuthRoutes />
+            </NavigationContainer>
+          </BuyProvider>
         </ProductsCartProvider>
       </ProductsFavoriteProvider>
     </UserProvider>
