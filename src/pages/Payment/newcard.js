@@ -61,10 +61,8 @@ export default function NewCard({ navigation }){
       Alert.alert('Erro', 'O nome no cartão é obrigatório.');
       return false;
     }
-	console.log(cardNumber.length)
-	console.log(cardNumber)
+    
     if(cardNumber.length !== 16){
-		console.log(cardNumber.length)
       Alert.alert('Erro', 'O número do cartão deve ter 16 dígitos');
       return false;
     }
@@ -102,7 +100,6 @@ export default function NewCard({ navigation }){
     if(validateFields()){
       addCard(newCard);
     if(newCard.isPrincipal){setPrincipalCard(newCard)}
-	  console.log(newCard)
       navigation.reset({index: 0, routes:[{name: 'Payment'}]});
     }
   }

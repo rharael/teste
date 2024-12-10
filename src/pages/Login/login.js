@@ -32,19 +32,12 @@ const LoginScreen = ({ navigation }) => {
   const { setActiveUser } = useContext(UserContext);
   const handleLogin = () => {
 
-	const userId = username;
-	setActiveUser(userId);
-	navigation.navigate("AppRoutes");
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const userId = username;
+    setActiveUser(userId);
+    navigation.navigate("AppRoutes");
 
     if (!username) {
-      Alert.alert('Erro', 'Por favor, insira seu email.');
-      return;
-    }
-
-    if (!emailRegex.test(username)) {
-      Alert.alert('Erro', 'Por favor, insira um email válido.');
+      Alert.alert('Erro', 'Por favor, insira seus dados.');
       return;
     }
 
@@ -78,26 +71,30 @@ const LoginScreen = ({ navigation }) => {
 
           <Input
             value={username}
-            placeholder="Email"
+            placeholder="Nome de Usuário"
             onChangeText={setUsername}
             autoCapitalize="none"
           />
 
           <Input
             value={password}
-            placeholder="Digite sua senha"
+            placeholder="Senha"
             secureTextEntry
             onChangeText={setPassword}
           />
 
           <RememberMeContainer>
             <TouchableOpacity
-              style={[CustomCheckbox, rememberMe && { backgroundColor: '#fe724c' }]}
               onPress={() => setRememberMe(!rememberMe)}
+              style={{ flexDirection: 'row', alignItems: 'center' }}
             >
-              {rememberMe && <Text style={{ color: '#fff', fontWeight: 'bold' }}>✔</Text>}
+              <CustomCheckbox selected={rememberMe}>
+                {rememberMe && (
+                  <Text style={{ color: '#fff', fontWeight: 'bold' }}>✔</Text>
+                )}
+              </CustomCheckbox>
+              <RememberMeText>Lembrar senha</RememberMeText>
             </TouchableOpacity>
-            <RememberMeText>Lembrar senha</RememberMeText>
           </RememberMeContainer>
 
           <LoginButton onPress={handleLogin}>

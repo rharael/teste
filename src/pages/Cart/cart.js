@@ -8,6 +8,7 @@ import { FlatList } from 'react-native';
 
 export default function Cart ({navigation}){
     const [cupom, setCupom] = useState('');
+
     const { productsCart, subtotalPrice, discount, applyCoupon, total  } = useContext(ProductsCartContext);
     const [message, setMessage] = useState('');
     const handleCouponChange = (code) => {
@@ -20,6 +21,7 @@ export default function Cart ({navigation}){
           setMessage('');
         }
       };
+
     return (
         <Container showsVerticalScrollIndicator={false}>
         {productsCart.length === 0 ? (
@@ -28,6 +30,7 @@ export default function Cart ({navigation}){
                 <EmptyTitle>Seu carrinho está vazio</EmptyTitle>
             </EmptyCart>
         ) : (
+
 
           <CartContainer>
             <FlatList

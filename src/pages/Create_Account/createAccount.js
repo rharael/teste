@@ -50,6 +50,18 @@ const CreateAccountScreen = ({ navigation }) => {
       Alert.alert('Erro', 'A senha deve ter pelo menos 8 caracteres.');
       return;
     }
+
+    Alert.alert('Conta criada com Sucesso!', '', [
+      {
+        text: 'OK',
+        onPress: () => {
+          Alert.alert('Você foi redirecionado(a) à Tela de Login!', '', [
+            { text: 'OK', onPress: () => navigation.navigate('Login') },
+          ]);
+        },
+      },
+    ]);
+
   };
 
   return (

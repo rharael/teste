@@ -54,7 +54,7 @@ export const CustomCheckbox = styled.View`
   height: 18px;
   border-width: 1px;
   border-color: #ccc;
-  background-color: ${({ selected }) => (selected ? '#0F100D' : '#fff')};
+  background-color: ${({ selected }) => (selected ? '#fe724c' : '#fff')};
   justify-content: center;
   align-items: center;
   border-radius: 4px;
