@@ -9,7 +9,7 @@ import { BuyContext } from '../../utils/context/BuyContext';
 
 export default function Payment({ navigation }){
   const { cards } = useContext(CardContext);
-  const { productsCart, subtotalPrice, clearCart } = useContext(ProductsCartContext);
+  const { productsCart, subtotalPrice, clearCart, total, discount } = useContext(ProductsCartContext);
   const { generateBuy } = useContext(BuyContext);
   const [ selectedOption, setSelectedOption ] = useState('');
 
@@ -25,7 +25,7 @@ export default function Payment({ navigation }){
 
   const handlePayment = () => {
     if(productsCart.length > 0){
-      generateBuy(productsCart, subtotalPrice);
+      generateBuy(productsCart, subtotalPrice, discount, total);
       clearCart();
       navigation.reset({index: 0, routes:[{name: 'PaymentFinish'}]});
     }
@@ -87,14 +87,14 @@ export default function Payment({ navigation }){
 
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Desconto</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>-$ --------</Styles.PurchaseValue>
+            <Styles.PurchaseValue>-$ {discount.toFixed(2)}</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
 
           <Styles.LineDivPurchase/>
 
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Total</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>$ --------</Styles.PurchaseValue>
+            <Styles.PurchaseValue>$ {total.toFixed(2)}</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
         </Styles.PurchaseValuesContainer>
 

@@ -3,7 +3,7 @@ import Styles from './styles';
 import { BuyContext } from '../../utils/context/BuyContext';
 
 export default function PaymentFinish({ navigation }){
-  const { buys, lastSubtotalPrice } = useContext(BuyContext);
+  const { buys, lastSubtotalPrice, lastTotal, lastDiscount } = useContext(BuyContext);
   const lastBuy = buys[0];
 
   return(
@@ -21,14 +21,14 @@ export default function PaymentFinish({ navigation }){
 
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Desconto</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>-$ --------</Styles.PurchaseValue>
+            <Styles.PurchaseValue>-$ {lastDiscount.toFixed(2)}</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
 
           <Styles.LineDivPurchase/>
    
           <Styles.PurchaseValuesContent>
             <Styles.PurchaseValuesTitle>Total</Styles.PurchaseValuesTitle>
-            <Styles.PurchaseValue>$ --------</Styles.PurchaseValue>
+            <Styles.PurchaseValue>$ {lastTotal}</Styles.PurchaseValue>
           </Styles.PurchaseValuesContent>
         </Styles.PurchaseValuesContainer>
 
