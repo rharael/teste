@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { Keyboard, FlatList } from 'react-native';
 import Styles from './styles';
 import ProductCard from './ProductCard';
 import Api from '../../services/Api';
 import { ActivityIndicator } from 'react-native';
+import { UserContext } from '../../utils/context/UserContext';
 
 export default function Home({ navigation }){
   const [columns, setColumns] = useState(2);
@@ -12,6 +13,7 @@ export default function Home({ navigation }){
   const [filterProducts, setFilterProducts] = useState([]);
   const [searchProduct, setSearchProduct] = useState('');
   const [loading, setLoading] = useState(false);
+  const {userData} = useContext(UserContext)
 
   useEffect( () => {
     fetchCategories();
@@ -87,7 +89,7 @@ export default function Home({ navigation }){
         <Styles.HeaderDiv>
           <Styles.WelcomeDiv>
             <Styles.WelcomeText>Bem-vindo</Styles.WelcomeText>
-            <Styles.UserName>Nome do Usuário</Styles.UserName>
+            <Styles.UserName>{userData.name}</Styles.UserName>
           </Styles.WelcomeDiv>
 
           <Styles.ShoppingCart onPress={() => navigation.navigate('BuyHome')}>
