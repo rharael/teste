@@ -31,7 +31,7 @@ export const BuyProvider = ({ children }) => {
     }
   }
 
-  const generateBuy = (products, subtotalPrice) => {
+  const generateBuy = (products, subtotalPrice, discount, total) => {
     const id = Math.floor(100000 + Math.random() * 900000).toString();
     const currentDate = new Date();
     const months = [
