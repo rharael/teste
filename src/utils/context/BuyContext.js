@@ -8,6 +8,8 @@ export const BuyProvider = ({ children }) => {
   const { activeUserId } = useContext(UserContext)
   const [buys, setBuys] = useState([]);
   const [lastSubtotalPrice, setLastSubtotalPrice] = useState(0);
+  const [lastTotal, setLastTotal] = useState(0);
+  const [lastDiscount, setLastDiscount] = useState(0);
 
   const saveBuys = async (updatedBuys) => {
     try{
@@ -57,6 +59,8 @@ export const BuyProvider = ({ children }) => {
     const updatedBuys = [newBuy, ...buys];
     saveBuys(updatedBuys);
     setLastSubtotalPrice(subtotalPrice);
+    setLastDiscount(discount);
+    setLastTotal(total);
   };
 
   useEffect(() => {
@@ -66,7 +70,7 @@ export const BuyProvider = ({ children }) => {
   }, [activeUserId]);
 
   return (
-    <BuyContext.Provider value={{ buys, generateBuy, lastSubtotalPrice }}>
+    <BuyContext.Provider value={{ buys, generateBuy, lastSubtotalPrice, lastDiscount, lastTtotal }}>
       {children}
     </BuyContext.Provider>
   );
