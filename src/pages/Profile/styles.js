@@ -135,7 +135,7 @@ const LabelContainer = styled.View`
 
 const Label = styled.Text`
 	margin-bottom: 8px;
-	color: #333333;
+	color: #9D9D9D;
 	font-family: 'Urbanist-Medium';
 	font-size: 13px;
 `;
