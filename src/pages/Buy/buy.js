@@ -1,48 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FlatList } from "react-native";
 import Styles from "./styles";
+import { BuyContext } from "../../utils/context/BuyContext";
 
 export default function Buy({ navigation }) {
-  const buys = [
-    {
-      id: "#999999",
-      data: "20 de novembro de 2024",
-      product: [
-        {
-          image: require("../../assets/images/iphone.png"),
-          name: "Apple iPhone Pro",
-          quantity: "2",
-        },
-        {
-          image: require("../../assets/images/iphone.png"),
-          name: "Samsung Galaxy A15",
-          quantity: "1",
-        },
-        {
-          image: require("../../assets/images/iphone.png"),
-          name: "PlayStation 5 Slim",
-          quantity: "3",
-        },
-        {
-          image: require("../../assets/images/iphone.png"),
-          name: "Apple iPhone Pro",
-          quantity: "2",
-        },
-      ],
-    },
-    {
-      id: "#888888",
-      data: "18 de novembro de 2024",
-      product: [
-        {
-          image: require("../../assets/images/iphone.png"),
-          name: "Apple iPhone Pro",
-          quantity: "3",
-        },
-      ],
-    },
-  ];
-
+  const { buys } = useContext(BuyContext);
   const [expandedBuys, setExpandedBuys] = useState({});
 
   const handleExpand = (buyId) => {
@@ -84,15 +46,15 @@ export default function Buy({ navigation }) {
               return (
                 <Styles.BuysContainer>
                   <Styles.BuysHeader>
-                    <Styles.BuyData>{item.data}</Styles.BuyData>
-                    <Styles.BuyCode>{item.id}</Styles.BuyCode>
+                    <Styles.BuyData>{item.date}</Styles.BuyData>
+                    <Styles.BuyCode>#{item.id}</Styles.BuyCode>
                   </Styles.BuysHeader>
 
                   {productsToShow.map((product, index) => (
                     <Styles.BuyedProductsContainer key={index}>
                       <Styles.BuyedProduct>
                         <Styles.ProductImageArea>
-                          <Styles.ProductImage source={product.image} />
+                          <Styles.ProductImage source={{uri: product.image}} />
                         </Styles.ProductImageArea>
 
                         <Styles.ProductInformation>

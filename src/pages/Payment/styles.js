@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const Container = styled.View`
   flex: 1;
-  background-Color: #fff;
+  background-Color: #FFFFFF;
   width: 100%;
   margin: 0 auto;
 `;
@@ -91,7 +91,7 @@ const RadioCircle = styled.View`
   width: 12px;
   height: 12px;
   border-radius: 6px;
-  background-color: #FFF;
+  background-color: #FFFFFF;
 `;
 
 const LineDiv = styled.View`
@@ -177,7 +177,7 @@ const CardPreviewHeader = styled.View`
 const CardPreviewNumber = styled.Text`
   font-size: 20px;
   font-family: 'Urbanist-SemiBold';
-  color: #FFF;
+  color: #FFFFFF;
   margin: 23px 0 25px;
 `;
 
@@ -209,13 +209,13 @@ const CardPreviewTitle = styled.Text`
 const CardPreviewName = styled.Text`
   font-size: 20px;
   font-family: 'Urbanist-SemiBold';
-  color: #FFF;
+  color: #FFFFFF;
 `;
 
 const CardPreviewValue = styled.Text`
   font-size: 15px;
   font-family: 'Urbanist-Light';
-  color: #FFF;
+  color: #FFFFFF;
 `;
 
 const LogoCardContainer = styled.View`
@@ -320,7 +320,7 @@ const Button = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   font-size: 16px;
   font-family: 'Urbanist-SemiBold';
-  color: #FFF;
+  color: #FFFFFF;
 `;
 
 const PaymentFinishImage = styled.Image`
@@ -355,7 +355,7 @@ const MyPurchasesButton = styled.TouchableOpacity`
 const MyPurchasesText = styled.Text`
   font-size: 14px;
   font-family: 'Urbanist-SemiBold';
-  color: #FFF;
+  color: #FFFFFF;
   text-align: center;
 `;
 

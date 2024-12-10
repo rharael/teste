@@ -44,7 +44,6 @@ export const CardProvider = ({ children })=> {
 
 		const cardWithId = { ...newCard, idCard };
 		const updatedCards = [cardWithId, ...cards];
-		console.log(cardWithId)
 		saveCards(updatedCards);
 		};
 
