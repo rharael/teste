@@ -8,16 +8,19 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
 	const [userData, setUserData] = useState(null);
 	const [activeUserId, setActiveUserId] = useState(null);
-	const [buys, setBuys] = useState([]);
+	const [userLoading, setUserLoading] = useState(true);
 
 	const loadUserData = async (id) => {
+		setUserLoading(true);
 		try {
 			const storedData = await AsyncStorage.getItem(`user_${id}`);
+			let parsedData = storedData ? JSON.parse(storedData) : null;
 			console.log("name",storedData.name)
-			if (storedData) {
-			setUserData(JSON.parse(storedData));
-			console.log("name set ",storedData.name)
+			if (parsedData && parsedData.name) {
+			setUserData(parsedData);
+			console.log("Dados carregados do AsyncStorage:", parsedData.name);
 			} else {
+			console.log("Dados ausentes ou incompletos no AsyncStorage. Buscando da API...");
 			const response = await Api.get(`users/${id}`);
 			const fetchedData = {
 				id: id,
@@ -38,6 +41,8 @@ export const UserProvider = ({ children }) => {
 			}
 		} catch (error) {
 		Alert.alert("Erro", "Não foi possível carregar os dados.");
+		} finally {
+			setUserLoading(false);
 		}
 	};
 
@@ -50,7 +55,6 @@ export const UserProvider = ({ children }) => {
 			}
 	};
 
-
 	const setActiveUser = async (id) => {
 		try {
 			setActiveUserId(id);
@@ -62,6 +66,7 @@ export const UserProvider = ({ children }) => {
 	};
 
 	const loadActiveUser = async () => {
+		setUserLoading(true);
 		try {
 			const storedId = await AsyncStorage.getItem("activeUserId");
 			if (storedId) {
@@ -70,6 +75,8 @@ export const UserProvider = ({ children }) => {
 			}
 		} catch (error) {
 			console.error("Erro ao carregar usuário ativo:", error);
+		} finally {
+			setUserLoading(false);
 		}
 	};
 
@@ -88,7 +95,7 @@ export const UserProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<UserContext.Provider value={{ userData, updateUserData, setActiveUser, activeUserId, logout,}}>
+		<UserContext.Provider value={{ userData, updateUserData, setActiveUser, activeUserId, logout, userLoading}}>
 			{children}
 		</UserContext.Provider>
 	);

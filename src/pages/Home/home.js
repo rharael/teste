@@ -13,7 +13,8 @@ export default function Home({ navigation }){
   const [filterProducts, setFilterProducts] = useState([]);
   const [searchProduct, setSearchProduct] = useState('');
   const [loading, setLoading] = useState(false);
-  const {userData} = useContext(UserContext)
+  const {userData, userLoading} = useContext(UserContext)
+  
 
   useEffect( () => {
     fetchCategories();
@@ -71,7 +72,7 @@ export default function Home({ navigation }){
     setFilterProducts(products);
   }
 
-  if(loading){
+  if(loading || userLoading){
     return(
       <Styles.LoadingContainer>
         <ActivityIndicator
@@ -89,7 +90,7 @@ export default function Home({ navigation }){
         <Styles.HeaderDiv>
           <Styles.WelcomeDiv>
             <Styles.WelcomeText>Bem-vindo</Styles.WelcomeText>
-            <Styles.UserName>{userData.name}</Styles.UserName>
+            <Styles.UserName>{userData?.name || "Usuário"}</Styles.UserName>
           </Styles.WelcomeDiv>
 
           <Styles.ShoppingCart onPress={() => navigation.navigate('BuyHome')}>

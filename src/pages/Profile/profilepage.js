@@ -22,8 +22,8 @@ export default function Profile() {
   return (
 	<Styles.Container>
     <Styles.Header>
-		<Styles.ProfileName>{userData.name}</Styles.ProfileName>
-		<Styles.ProfileEmail>{userData.email}</Styles.ProfileEmail>
+		<Styles.ProfileName>{userData?.name || "João das Neves"}</Styles.ProfileName>
+		<Styles.ProfileEmail>{userData?.email || "João das Neves"}</Styles.ProfileEmail>
 		</Styles.Header>
 	<Styles.MenuContainer>
 		<Styles.MenuItem onPress={() => navigation.navigate('ProfileUser', { headerTitle: 'Perfil' })}>
