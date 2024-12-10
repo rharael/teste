@@ -421,6 +421,28 @@ const Edit = ({ width = 16, height = 16, color = '#FE724C' }) => (
 	</Svg>
 );
 
+// help
+const DownArrow = ({ width = 26, height = 14, color = '#FE724C' }) => (
+	<Svg width={width} height={height} viewBox="0 0 26 14" fill="none">
+	<G clipPath="url(#clip0_91_389)">
+    <Path
+      d="M18.401 3.42236L19.4668 4.47754L13.7216 10.2881C13.6295 10.3817 13.5198 10.4563 13.3989 10.5074C13.2779 10.5585 13.148 10.5852 13.0167 10.5859C12.8854 10.5866 12.7552 10.5614 12.6337 10.5116C12.5121 10.4618 12.4017 10.3885 12.3086 10.2958L6.49701 4.54857L7.55119 3.48278L13.0058 8.87699L18.401 3.42236Z"
+      fill={color}
+    />
+	</G>
+	<Defs>
+      <ClipPath id="clip0_91_389">
+        <Rect
+          width={12}
+          height={24}
+          fill="white"
+          transform="translate(24.9673 0.934357) rotate(89.6862)"
+        />
+      </ClipPath>
+    </Defs>
+  </Svg>
+);
+
 // card icons
 const Confirm = ({width = 17, height = 17}) => (
 	<Svg width={width} height={height} viewBox="-1.6 -1.6 19.20 19.20" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke-width="0.00016">
@@ -439,7 +461,7 @@ const Icons = {
 	HomeIcon, Favorite, Cart, UserHome,
 	Share, Heart, HeartSelected, CartAdd, Back, Close, Plus, Minus, Plusfill, Minusfill, CardPayment,
 	UserProfile, AddressPin, Help, Arrow, BackArrow,
-	Calendar, Mail, Phone, Save, Edit, 
+	Calendar, Mail, Phone, Save, Edit, DownArrow,
 	Confirm
   };
   
