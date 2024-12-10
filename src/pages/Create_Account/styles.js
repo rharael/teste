@@ -18,6 +18,7 @@ export const LogoText = styled.Text`
   font-weight: 900;
   color: #0f100d;
   text-align: center;
+  font-family: 'Urbanist-Regular';
 `;
 
 export const TextHighlight = styled.Text`
@@ -31,6 +32,7 @@ export const Subtitle = styled.Text`
   font-size: 16px;
   color: #7c7c7c;
   margin-bottom: 40px;
+  font-family: 'Urbanist-Regular';
 `;
 
 export const Input = styled.TextInput`
@@ -40,6 +42,8 @@ export const Input = styled.TextInput`
   padding: 20px;
   background-color: #eef0f5;
   border-radius: 8px;
+  font-weight:600;
+  font-family: 'Urbanist-Medium';
 `;
 
 export const LoginButton = styled.TouchableOpacity`
@@ -57,6 +61,7 @@ export const LoginButtonText = styled.Text`
   color: #fff;
   font-size: 16px;
   font-weight: 600;
+  font-family: 'Urbanist-Bold';
 `;
 
 export const FooterText = styled.Text`
@@ -65,10 +70,12 @@ export const FooterText = styled.Text`
   font-weight: 600;
   text-align: center;
   margin-bottom: 44px;
+  font-family: 'Urbanist-SemiBold';
 `;
 
 export const CreateAccountText = styled.Text`
   color: #fe724c;
   margin-left: 10px;
   font-weigth: 700;
+  font-family: 'Urbanist-SemiBold';
 `;
