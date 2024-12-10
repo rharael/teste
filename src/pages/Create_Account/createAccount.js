@@ -4,6 +4,9 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  TouchableOpacity,
+  Text,
+  View,
 } from 'react-native';
 import {
   Container,
@@ -22,6 +25,7 @@ const CreateAccountScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // Controle de visibilidade da senha
 
   const handleCreateAccount = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,7 +65,6 @@ const CreateAccountScreen = ({ navigation }) => {
         },
       },
     ]);
-
   };
 
   return (
@@ -96,12 +99,28 @@ const CreateAccountScreen = ({ navigation }) => {
             keyboardType="email-address"
           />
 
-          <Input
-            value={password}
-            placeholder="Senha"
-            secureTextEntry
-            onChangeText={setPassword}
-          />
+          <View style={{ position: 'relative', width: '100%' }}>
+            <Input
+              value={password}
+              placeholder="Senha"
+              secureTextEntry={!showPassword} // Alterna visibilidade da senha
+              onChangeText={setPassword}
+              style={{ paddingRight: 40 }} // Espaço para o botão
+            />
+            <TouchableOpacity
+              onPress={() => setShowPassword(!showPassword)}
+              style={{
+                position: 'absolute',
+                right: 10,
+                top: '35%',
+                transform: [{ translateY: -10 }],
+              }}
+            >
+              <Text style={{ fontSize: 14 }}>
+                {showPassword ? 'Ocultar' : 'Mostrar'}
+              </Text>
+            </TouchableOpacity>
+          </View>
 
           <LoginButton onPress={handleCreateAccount}>
             <LoginButtonText>Criar conta</LoginButtonText>
